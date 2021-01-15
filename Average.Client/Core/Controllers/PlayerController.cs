@@ -93,7 +93,7 @@ namespace Client.Core.Controllers
         public int StaminaDecreaseValue { get; set; } = 1;
         public bool CoreSystemEnabled { get; set; }
 
-        public PlayerController(Main main) : base(main, "player_manager")
+        public PlayerController(Main main) : base(main)
         {
             task = Main.GetScript<TaskManager>();
             permission = Main.GetScript<PermissionManager>();
@@ -132,14 +132,11 @@ namespace Client.Core.Controllers
 
         private void Update()
         {
-            if ((bool)Config["UseCoreSystem"])
+            if (CoreSystemEnabled)
             {
-                if (CoreSystemEnabled)
-                {
-                    UpdateHunger();
-                    UpdateThirst();
-                    UpdateHealth();
-                }
+                UpdateHunger();
+                UpdateThirst();
+                UpdateHealth();
             }
 
             UpdatePosition();
@@ -314,44 +311,36 @@ namespace Client.Core.Controllers
                 }
             }
 
-            if ((bool)Config["UseCustomMovement"])
+            if (IsControlJustReleased(0, (uint)Keys.LALT))
             {
-                if (IsControlJustReleased(0, (uint)Keys.LALT))
-                {
-                    isSprinting = !isSprinting;
-                }
+                isSprinting = !isSprinting;
+            }
 
-                if (IsControlPressed(0, (uint)Keys.SHIFT))
+            if (IsControlPressed(0, (uint)Keys.SHIFT))
+            {
+                canRegen = false;
+
+                if (!IsPlayerFreeAiming(PlayerId()))
                 {
                     canRegen = false;
 
-                    if (!IsPlayerFreeAiming(PlayerId()))
+                    if (isSprinting)
                     {
-                        canRegen = false;
-
-                        if (isSprinting)
-                        {
-                            if (Stamina <= 25)
-                            {
-                                StaminaDecreaseValue = 2;
-                                SetPedMaxMoveBlendRatio(ped, 1.7f);
-                            }
-                            else
-                            {
-                                StaminaDecreaseValue = 5;
-                                SetPedMaxMoveBlendRatio(ped, 1.95f);
-                            }
-                        }
-                        else
+                        if (Stamina <= 25)
                         {
                             StaminaDecreaseValue = 2;
                             SetPedMaxMoveBlendRatio(ped, 1.7f);
                         }
+                        else
+                        {
+                            StaminaDecreaseValue = 5;
+                            SetPedMaxMoveBlendRatio(ped, 1.95f);
+                        }
                     }
                     else
                     {
-                        canRegen = true;
-                        SetPedMaxMoveBlendRatio(ped, 0.6f);
+                        StaminaDecreaseValue = 2;
+                        SetPedMaxMoveBlendRatio(ped, 1.7f);
                     }
                 }
                 else
@@ -359,11 +348,16 @@ namespace Client.Core.Controllers
                     canRegen = true;
                     SetPedMaxMoveBlendRatio(ped, 0.6f);
                 }
-
-                SetPedMinMoveBlendRatio(ped, 0f);
-                SetPedMoveAnimsBlendOut(ped);
-                SetPedDesiredMoveBlendRatio(ped, 10f);
             }
+            else
+            {
+                canRegen = true;
+                SetPedMaxMoveBlendRatio(ped, 0.6f);
+            }
+
+            SetPedMinMoveBlendRatio(ped, 0f);
+            SetPedMoveAnimsBlendOut(ped);
+            SetPedDesiredMoveBlendRatio(ped, 10f);
         }
 
         private void Update6()

@@ -38,7 +38,7 @@ namespace Client.Core.Managers
 
         public DoorManager(Main main) : base(main)
         {
-            Constant.DoorsInfos = Configuration<DoorInfoModelConfig>.Parse("utils/doors_infos");
+            Constant.DoorsInfos = Configuration<List<DoorInfo>>.Parse("utils/doors_infos");
 
             permission = Main.GetScript<PermissionManager>();
             character = Main.GetScript<CharacterManager>();
@@ -103,9 +103,9 @@ namespace Client.Core.Managers
             }
         }
 
-        private DoorInfoModel GetDoorModel(Vector3 position)
+        private DoorInfo GetDoorModel(Vector3 position)
         {
-            return Constant.DoorsInfos.Doors.Find(x =>
+            return Constant.DoorsInfos.Find(x =>
               Math.Round(x.X) == Math.Round(position.X) &&
               Math.Round(x.Y) == Math.Round(position.Y) &&
               Math.Round(x.Z) == Math.Round(position.Z));

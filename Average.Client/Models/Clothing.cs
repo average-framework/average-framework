@@ -2,7 +2,7 @@
 
 namespace Client.Models
 {
-    public class ClothModel
+    public class Clothing
     {
         public List<string> CoatsMpMale { get; set; }
         public List<string> CoatsMpFemale { get; set; }
@@ -81,10 +81,5 @@ namespace Client.Models
         public List<int> WaistTypes { get; set; }
         public List<string> FaceParts { get; set; }
         public List<string> ColorPalettes { get; set; }
-    }
-
-    public class ClothModelConfig
-    {
-        public ClothModel Clothes { get; set; }
     }
 }

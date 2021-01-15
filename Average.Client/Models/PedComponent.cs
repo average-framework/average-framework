@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Client.Models
 {
-    public class PedComponentModel
+    public class PedComponent
     {
         public Gender Gender { get; set; }
         public List<string> Heads { get; set; }
@@ -11,9 +11,9 @@ namespace Client.Models
         public List<string> Legs { get; set; }
         public string HeadTexture { get; set; }
 
-        public PedComponentModel() { }
+        public PedComponent() { }
 
-        public PedComponentModel(Gender gender, List<string> heads, List<string> body, List<string> legs, string headTexture)
+        public PedComponent(Gender gender, List<string> heads, List<string> body, List<string> legs, string headTexture)
         {
             Gender = gender;
             Heads = heads;

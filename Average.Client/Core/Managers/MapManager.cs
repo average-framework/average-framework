@@ -15,18 +15,18 @@ namespace Client.Core.Managers
 
         public MapManager(Main main) : base(main)
         {
-            Constant.Imaps = Configuration<ImapModelConfig>.Parse("utils/imaps_infos");
-            Constant.MyImaps = Configuration<MyImapModelConfig>.Parse("config/my_imaps");
-            Constant.Interiors = Configuration<InteriorModelConfig>.Parse("utils/interiors_infos");
-            Constant.InteriorsSet = Configuration<InteriorSetModelConfig>.Parse("utils/interiors_set_infos");
-            Constant.MyInteriors = Configuration<MyInteriorModelConfig>.Parse("config/my_interiors");
+            Constant.Imaps = Configuration<List<Imap>>.Parse("utils/imaps_infos");
+            Constant.MyImaps = Configuration<List<MyImap>>.Parse("config/my_imaps");
+            Constant.Interiors = Configuration<List<Interior>>.Parse("utils/interiors_infos");
+            Constant.InteriorsSet = Configuration<List<InteriorSet>>.Parse("utils/interiors_set_infos");
+            Constant.MyInteriors = Configuration<List<MyInterior>>.Parse("config/my_interiors");
 
             permission = Main.GetScript<PermissionManager>();
         }
 
         public void Load()
         {
-            foreach (var imap in Constant.MyImaps.Imaps)
+            foreach (var imap in Constant.MyImaps)
             {
                 var hash = (uint)long.Parse(imap.Hash);
 
@@ -46,7 +46,7 @@ namespace Client.Core.Managers
                 }
             }
 
-            foreach (var interior in Constant.MyInteriors.Interiors)
+            foreach (var interior in Constant.MyInteriors)
             {
                 if (interior.Enable)
                 {
@@ -61,7 +61,7 @@ namespace Client.Core.Managers
 
         private void UnloadAll()
         {
-            foreach (var imap in Constant.Imaps.Imaps)
+            foreach (var imap in Constant.Imaps)
             {
                 var hash = uint.Parse(imap.Hash, System.Globalization.NumberStyles.AllowHexSpecifier);
 
@@ -95,7 +95,7 @@ namespace Client.Core.Managers
         {
             if (permission.HasPermission("owner"))
             {
-                foreach (var imap in Constant.Imaps.Imaps)
+                foreach (var imap in Constant.Imaps)
                 {
                     var hash = uint.Parse(imap.Hash, System.Globalization.NumberStyles.AllowHexSpecifier);
 
@@ -112,7 +112,7 @@ namespace Client.Core.Managers
         {
             if (permission.HasPermission("owner"))
             {
-                foreach (var imap in Constant.Imaps.Imaps)
+                foreach (var imap in Constant.Imaps)
                 {
                     var hash = uint.Parse(imap.Hash, System.Globalization.NumberStyles.AllowHexSpecifier);
 

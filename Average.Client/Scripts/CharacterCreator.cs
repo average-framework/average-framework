@@ -145,8 +145,8 @@ namespace Client.Scripts
 
         protected Gender gender = Gender.Male;
 
-        protected PedComponentModel culture = null;
-        protected List<PedComponentModel> cultures = null;
+        protected PedComponent culture = null;
+        protected List<PedComponent> cultures = null;
         protected Dictionary<string, dynamic> textureType = new Dictionary<string, dynamic>();
         protected Dictionary<int, float> characterFaceParts = new Dictionary<int, float>
         {
@@ -675,47 +675,47 @@ namespace Client.Scripts
         private void InitDefaultPedComponents()
         {
             // Define max cloth value by gender
-            beardItem.MaxValue = Clothes.Clothes.BeardMale.Count - 1;
-            skirtsItem.MaxValue = Clothes.Clothes.LoadoutsFemale.Count - 1;
-            hairItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.HairMale.Count : Clothes.Clothes.HairFemale.Count) - 1;
-            eyesItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.EyesMale.Count : Clothes.Clothes.EyesFemale.Count) - 1;
-            teethItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.TeethMale.Count : Clothes.Clothes.TeethFemale.Count) - 1;
-            braceletsItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.BraceletsMale.Count : Clothes.Clothes.BraceletsFemale.Count) - 1;
-            ringsLeftHandItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.RingsLeftHandMale.Count : Clothes.Clothes.RingsLeftHandFemale.Count) - 1;
-            ringsRightHandItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.RingsRightHandMale.Count : Clothes.Clothes.RingsRightHandFemale.Count) - 1;
-            holstersItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.HolstersMale.Count : Clothes.Clothes.HolstersFemale.Count) - 1;
-            eyewearItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.EyewearMale.Count : Clothes.Clothes.EyewearFemale.Count) - 1;
-            hatsItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.HatsMale.Count : Clothes.Clothes.HatsFemale.Count) - 1;
-            shirtsItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.ShirtsMale.Count : Clothes.Clothes.ShirtsFemale.Count) - 1;
-            vestItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.VestMale.Count : Clothes.Clothes.VestFemale.Count) - 1;
-            pantsItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.PantsMale.Count : Clothes.Clothes.PantsFemale.Count) - 1;
-            spursItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.SpursMale.Count : Clothes.Clothes.SpursFemale.Count) - 1;
-            chapsItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.ChapsMale.Count : Clothes.Clothes.ChapsFemale.Count) - 1;
-            cloakItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.CloakMale.Count : Clothes.Clothes.CloakFemale.Count) - 1;
-            //badgesItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.BadgesMale.Count : Clothes.Clothes.BadgesFemale.Count) - 1;
-            masksItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.MasksMale.Count : Clothes.Clothes.MasksFemale.Count) - 1;
-            spatsItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.SpatsMale.Count : Clothes.Clothes.SpatsFemale.Count) - 1;
-            neckwearItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.NeckwearMale.Count : Clothes.Clothes.NeckwearFemale.Count) - 1;
-            bootsItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.BootsMale.Count : Clothes.Clothes.BootsFemale.Count) - 1;
-            accessoriesItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.AccessoriesMale.Count : Clothes.Clothes.AccessoriesFemale.Count) - 1;
-            gauntletsItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.GauntletsMale.Count : Clothes.Clothes.GauntletsFemale.Count) - 1;
-            necktiesItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.NecktiesMale.Count : Clothes.Clothes.NecktiesFemale.Count) - 1;
-            suspendersItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.SuspendersMale.Count : Clothes.Clothes.SuspendersFemale.Count) - 1;
-            gunbeltItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.GunbeltMale.Count : Clothes.Clothes.GunbeltFemale.Count) - 1;
-            beltItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.BeltMale.Count : Clothes.Clothes.BeltFemale.Count) - 1;
-            buckleItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.BuckleMale.Count : Clothes.Clothes.BuckleFemale.Count) - 1;
-            coatsItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.CoatsMale.Count : Clothes.Clothes.CoatsFemale.Count) - 1;
-            coatsMPItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.CoatsMpMale.Count : Clothes.Clothes.CoatsMpFemale.Count) - 1;
-            ponchosItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.PonchosMale.Count : Clothes.Clothes.PonchosFemale.Count) - 1;
-            //armorsItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.ArmorsMale.Count : Clothes.Clothes.ArmorsFemale.Count) - 1;
-            glovesItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.GlovesMale.Count : Clothes.Clothes.GlovesFemale.Count) - 1;
-            satchelsItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.SatchelsMale.Count : Clothes.Clothes.SatchelsFemale.Count) - 1;
-            legAttachmentsItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.LegAttachmentsMale.Count : Clothes.Clothes.LegAttachmentsFemale.Count) - 1;
-            loadoutsItem.MaxValue = (gender == Gender.Male ? Clothes.Clothes.LoadoutsMale.Count : Clothes.Clothes.LoadoutsFemale.Count) - 1;
+            beardItem.MaxValue = Clothes.BeardMale.Count - 1;
+            skirtsItem.MaxValue = Clothes.LoadoutsFemale.Count - 1;
+            hairItem.MaxValue = (gender == Gender.Male ? Clothes.HairMale.Count : Clothes.HairFemale.Count) - 1;
+            eyesItem.MaxValue = (gender == Gender.Male ? Clothes.EyesMale.Count : Clothes.EyesFemale.Count) - 1;
+            teethItem.MaxValue = (gender == Gender.Male ? Clothes.TeethMale.Count : Clothes.TeethFemale.Count) - 1;
+            braceletsItem.MaxValue = (gender == Gender.Male ? Clothes.BraceletsMale.Count : Clothes.BraceletsFemale.Count) - 1;
+            ringsLeftHandItem.MaxValue = (gender == Gender.Male ? Clothes.RingsLeftHandMale.Count : Clothes.RingsLeftHandFemale.Count) - 1;
+            ringsRightHandItem.MaxValue = (gender == Gender.Male ? Clothes.RingsRightHandMale.Count : Clothes.RingsRightHandFemale.Count) - 1;
+            holstersItem.MaxValue = (gender == Gender.Male ? Clothes.HolstersMale.Count : Clothes.HolstersFemale.Count) - 1;
+            eyewearItem.MaxValue = (gender == Gender.Male ? Clothes.EyewearMale.Count : Clothes.EyewearFemale.Count) - 1;
+            hatsItem.MaxValue = (gender == Gender.Male ? Clothes.HatsMale.Count : Clothes.HatsFemale.Count) - 1;
+            shirtsItem.MaxValue = (gender == Gender.Male ? Clothes.ShirtsMale.Count : Clothes.ShirtsFemale.Count) - 1;
+            vestItem.MaxValue = (gender == Gender.Male ? Clothes.VestMale.Count : Clothes.VestFemale.Count) - 1;
+            pantsItem.MaxValue = (gender == Gender.Male ? Clothes.PantsMale.Count : Clothes.PantsFemale.Count) - 1;
+            spursItem.MaxValue = (gender == Gender.Male ? Clothes.SpursMale.Count : Clothes.SpursFemale.Count) - 1;
+            chapsItem.MaxValue = (gender == Gender.Male ? Clothes.ChapsMale.Count : Clothes.ChapsFemale.Count) - 1;
+            cloakItem.MaxValue = (gender == Gender.Male ? Clothes.CloakMale.Count : Clothes.CloakFemale.Count) - 1;
+            //badgesItem.MaxValue = (gender == Gender.Male ? Clothes.BadgesMale.Count : Clothes.BadgesFemale.Count) - 1;
+            masksItem.MaxValue = (gender == Gender.Male ? Clothes.MasksMale.Count : Clothes.MasksFemale.Count) - 1;
+            spatsItem.MaxValue = (gender == Gender.Male ? Clothes.SpatsMale.Count : Clothes.SpatsFemale.Count) - 1;
+            neckwearItem.MaxValue = (gender == Gender.Male ? Clothes.NeckwearMale.Count : Clothes.NeckwearFemale.Count) - 1;
+            bootsItem.MaxValue = (gender == Gender.Male ? Clothes.BootsMale.Count : Clothes.BootsFemale.Count) - 1;
+            accessoriesItem.MaxValue = (gender == Gender.Male ? Clothes.AccessoriesMale.Count : Clothes.AccessoriesFemale.Count) - 1;
+            gauntletsItem.MaxValue = (gender == Gender.Male ? Clothes.GauntletsMale.Count : Clothes.GauntletsFemale.Count) - 1;
+            necktiesItem.MaxValue = (gender == Gender.Male ? Clothes.NecktiesMale.Count : Clothes.NecktiesFemale.Count) - 1;
+            suspendersItem.MaxValue = (gender == Gender.Male ? Clothes.SuspendersMale.Count : Clothes.SuspendersFemale.Count) - 1;
+            gunbeltItem.MaxValue = (gender == Gender.Male ? Clothes.GunbeltMale.Count : Clothes.GunbeltFemale.Count) - 1;
+            beltItem.MaxValue = (gender == Gender.Male ? Clothes.BeltMale.Count : Clothes.BeltFemale.Count) - 1;
+            buckleItem.MaxValue = (gender == Gender.Male ? Clothes.BuckleMale.Count : Clothes.BuckleFemale.Count) - 1;
+            coatsItem.MaxValue = (gender == Gender.Male ? Clothes.CoatsMale.Count : Clothes.CoatsFemale.Count) - 1;
+            coatsMPItem.MaxValue = (gender == Gender.Male ? Clothes.CoatsMpMale.Count : Clothes.CoatsMpFemale.Count) - 1;
+            ponchosItem.MaxValue = (gender == Gender.Male ? Clothes.PonchosMale.Count : Clothes.PonchosFemale.Count) - 1;
+            //armorsItem.MaxValue = (gender == Gender.Male ? Clothes.ArmorsMale.Count : Clothes.ArmorsFemale.Count) - 1;
+            glovesItem.MaxValue = (gender == Gender.Male ? Clothes.GlovesMale.Count : Clothes.GlovesFemale.Count) - 1;
+            satchelsItem.MaxValue = (gender == Gender.Male ? Clothes.SatchelsMale.Count : Clothes.SatchelsFemale.Count) - 1;
+            legAttachmentsItem.MaxValue = (gender == Gender.Male ? Clothes.LegAttachmentsMale.Count : Clothes.LegAttachmentsFemale.Count) - 1;
+            loadoutsItem.MaxValue = (gender == Gender.Male ? Clothes.LoadoutsMale.Count : Clothes.LoadoutsFemale.Count) - 1;
 
             if (gender == Gender.Male)
             {
-                beardItem.Value = new Random(Environment.TickCount + 3).Next(0, Clothes.Clothes.BeardMale.Count - 1);
+                beardItem.Value = new Random(Environment.TickCount + 3).Next(0, Clothes.BeardMale.Count - 1);
             }
             else
             {
@@ -723,26 +723,26 @@ namespace Client.Scripts
                 mustacheItem.Visible = false;
             }
 
-            hairItem.Value = new Random(Environment.TickCount + 2).Next(0, (gender == Gender.Male ? Clothes.Clothes.HairMale.Count : Clothes.Clothes.HairFemale.Count) - 1);
-            eyesItem.Value = new Random(Environment.TickCount + 4).Next(0, (gender == Gender.Male ? Clothes.Clothes.EyesMale.Count : Clothes.Clothes.EyesFemale.Count) - 1);
-            teethItem.Value = new Random(Environment.TickCount + 1).Next(0, (gender == Gender.Male ? Clothes.Clothes.TeethMale.Count : Clothes.Clothes.TeethFemale.Count) - 1);
+            hairItem.Value = new Random(Environment.TickCount + 2).Next(0, (gender == Gender.Male ? Clothes.HairMale.Count : Clothes.HairFemale.Count) - 1);
+            eyesItem.Value = new Random(Environment.TickCount + 4).Next(0, (gender == Gender.Male ? Clothes.EyesMale.Count : Clothes.EyesFemale.Count) - 1);
+            teethItem.Value = new Random(Environment.TickCount + 1).Next(0, (gender == Gender.Male ? Clothes.TeethMale.Count : Clothes.TeethFemale.Count) - 1);
 
             if (gender == Gender.Male)
             {
-                SetPedComponent(beardItem, Lang.Current["Client.CharacterCreator.Beard"], Clothes.Clothes.BeardMale, beardItem.Value);
+                SetPedComponent(beardItem, Lang.Current["Client.CharacterCreator.Beard"], Clothes.BeardMale, beardItem.Value);
             }
 
-            SetPedComponent(hairItem, Lang.Current["Client.CharacterCreator.Hair"], gender == Gender.Male ? Clothes.Clothes.HairMale : Clothes.Clothes.HairFemale, hairItem.Value);
-            SetPedComponent(eyesItem, Lang.Current["Client.CharacterCreator.Eyes"], gender == Gender.Male ? Clothes.Clothes.EyesMale : Clothes.Clothes.EyesFemale, eyesItem.Value);
-            SetPedComponent(teethItem, Lang.Current["Client.CharacterCreator.Teeth"], gender == Gender.Male ? Clothes.Clothes.TeethMale : Clothes.Clothes.TeethFemale, teethItem.Value);
+            SetPedComponent(hairItem, Lang.Current["Client.CharacterCreator.Hair"], gender == Gender.Male ? Clothes.HairMale : Clothes.HairFemale, hairItem.Value);
+            SetPedComponent(eyesItem, Lang.Current["Client.CharacterCreator.Eyes"], gender == Gender.Male ? Clothes.EyesMale : Clothes.EyesFemale, eyesItem.Value);
+            SetPedComponent(teethItem, Lang.Current["Client.CharacterCreator.Teeth"], gender == Gender.Male ? Clothes.TeethMale : Clothes.TeethFemale, teethItem.Value);
 
             RemovePedComponent(ClothCategories.Pants);
 
-            bodyTypesItem.Value = new Random(Environment.TickCount + 5).Next(0, Clothes.Clothes.BodyTypes.Count - 1);
-            waistTypesItem.Value = new Random(Environment.TickCount + 6).Next(0, Clothes.Clothes.WaistTypes.Count - 1);
+            bodyTypesItem.Value = new Random(Environment.TickCount + 5).Next(0, Clothes.BodyTypes.Count - 1);
+            waistTypesItem.Value = new Random(Environment.TickCount + 6).Next(0, Clothes.WaistTypes.Count - 1);
 
-            SetPedBodyComponent(Clothes.Clothes.BodyTypes, bodyTypesItem.Value);
-            SetPedBodyComponent(Clothes.Clothes.WaistTypes, waistTypesItem.Value);
+            SetPedBodyComponent(Clothes.BodyTypes, bodyTypesItem.Value);
+            SetPedBodyComponent(Clothes.WaistTypes, waistTypesItem.Value);
         }
 
         private void InitInfoMenu(Vector3 spawnPosition)
@@ -867,29 +867,29 @@ namespace Client.Scripts
             faceMenu = new MenuContainer(Lang.Current["Client.CharacterCreator.Faces"].ToString().ToUpper());
             menu.CreateSubMenu(faceMenu);
 
-            eyesItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Eyes"], 0, (gender == Gender.Male ? Clothes.Clothes.EyesMale.Count : Clothes.Clothes.EyesFemale.Count) - 1, 0, 1, (value) =>
+            eyesItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Eyes"], 0, (gender == Gender.Male ? Clothes.EyesMale.Count : Clothes.EyesFemale.Count) - 1, 0, 1, (value) =>
             {
-                SetPedComponent(eyesItem, Lang.Current["Client.CharacterCreator.Eyes"], gender == Gender.Male ? Clothes.Clothes.EyesMale : Clothes.Clothes.EyesFemale, value);
+                SetPedComponent(eyesItem, Lang.Current["Client.CharacterCreator.Eyes"], gender == Gender.Male ? Clothes.EyesMale : Clothes.EyesFemale, value);
             });
 
-            hairItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Hair"], -1, (gender == Gender.Male ? Clothes.Clothes.HairMale.Count : Clothes.Clothes.HairFemale.Count) - 1, -1, 1, (value) =>
+            hairItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Hair"], -1, (gender == Gender.Male ? Clothes.HairMale.Count : Clothes.HairFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(hairItem, Lang.Current["Client.CharacterCreator.Hair"], gender == Gender.Male ? Clothes.Clothes.HairMale : Clothes.Clothes.HairFemale, value);
+                SetPedComponent(hairItem, Lang.Current["Client.CharacterCreator.Hair"], gender == Gender.Male ? Clothes.HairMale : Clothes.HairFemale, value);
             });
 
-            mustacheItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Moustache"], -1, Clothes.Clothes.MustacheMale.Count - 1, -1, 1, (value) =>
+            mustacheItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Moustache"], -1, Clothes.MustacheMale.Count - 1, -1, 1, (value) =>
             {
-                SetPedComponent(mustacheItem, Lang.Current["Client.CharacterCreator.Moustache"], Clothes.Clothes.MustacheMale, value);
+                SetPedComponent(mustacheItem, Lang.Current["Client.CharacterCreator.Moustache"], Clothes.MustacheMale, value);
             }, gender == Gender.Male ? true : false);
 
-            beardItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Beard"], -1, Clothes.Clothes.BeardMale.Count - 1, -1, 1, (value) =>
+            beardItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Beard"], -1, Clothes.BeardMale.Count - 1, -1, 1, (value) =>
             {
-                SetPedComponent(beardItem, Lang.Current["Client.CharacterCreator.Beard"], Clothes.Clothes.BeardMale, value);
+                SetPedComponent(beardItem, Lang.Current["Client.CharacterCreator.Beard"], Clothes.BeardMale, value);
             }, gender == Gender.Male ? true : false);
 
-            teethItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Teeth"], 0, (gender == Gender.Male ? Clothes.Clothes.TeethMale.Count : Clothes.Clothes.TeethFemale.Count) - 1, 0, 1, (value) =>
+            teethItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Teeth"], 0, (gender == Gender.Male ? Clothes.TeethMale.Count : Clothes.TeethFemale.Count) - 1, 0, 1, (value) =>
             {
-                SetPedComponent(teethItem, Lang.Current["Client.CharacterCreator.Teeth"], gender == Gender.Male ? Clothes.Clothes.TeethMale : Clothes.Clothes.TeethFemale, value);
+                SetPedComponent(teethItem, Lang.Current["Client.CharacterCreator.Teeth"], gender == Gender.Male ? Clothes.TeethMale : Clothes.TeethFemale, value);
             });
 
             faceMenu.AddItem(eyesItem);
@@ -1310,8 +1310,8 @@ namespace Client.Scripts
                 overlayTertiaryColorItem.Text = $"{Lang.Current["Client.CharacterCreator.TertiaryColor"]}: " + overlayTertiaryColorItem.Value;
 
                 overlayPaletteItem.MinValue = 0;
-                overlayPaletteItem.MaxValue = Clothes.Clothes.ColorPalettes.Count - 1;
-                overlayPaletteItem.Value = Clothes.Clothes.ColorPalettes.IndexOf(characterOverlays[overlayInfo.Name].Palette.ToString("X"));
+                overlayPaletteItem.MaxValue = Clothes.ColorPalettes.Count - 1;
+                overlayPaletteItem.Value = Clothes.ColorPalettes.IndexOf(characterOverlays[overlayInfo.Name].Palette.ToString("X"));
                 overlayPaletteItem.Text = $"{Lang.Current["Client.CharacterCreator.Palette"]}: " + overlayPaletteItem.Value;
 
                 overlayOpacityItem.Value = characterOverlays[overlayInfo.Name].Opacity;
@@ -1390,11 +1390,11 @@ namespace Client.Scripts
                 UpdateOverlay();
             });
 
-            overlayPaletteItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Palette"], 0, Clothes.Clothes.ColorPalettes.Count - 1, 0, 1, async (value) =>
+            overlayPaletteItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Palette"], 0, Clothes.ColorPalettes.Count - 1, 0, 1, async (value) =>
             {
                 overlayPaletteItem.Text = $"{Lang.Current["Client.CharacterCreator.Palette"]}: " + overlayPaletteItem.Value;
 
-                characterOverlays[overlayInfo.Name].Palette = uint.Parse(Clothes.Clothes.ColorPalettes[overlayPaletteItem.Value], System.Globalization.NumberStyles.AllowHexSpecifier);
+                characterOverlays[overlayInfo.Name].Palette = uint.Parse(Clothes.ColorPalettes[overlayPaletteItem.Value], System.Globalization.NumberStyles.AllowHexSpecifier);
 
                 await Delay(0);
 
@@ -1438,18 +1438,18 @@ namespace Client.Scripts
             bodyMenu = new MenuContainer(Lang.Current["Client.CharacterCreator.Body"].ToString().ToUpper());
             menu.CreateSubMenu(bodyMenu);
 
-            bodyTypesItem = new MenuSliderSelectorItem<int>("Morphologie", 0, Clothes.Clothes.BodyTypes.Count - 1, 0, 1, (value) =>
+            bodyTypesItem = new MenuSliderSelectorItem<int>("Morphologie", 0, Clothes.BodyTypes.Count - 1, 0, 1, (value) =>
             {
                 bodyTypesItem.Text = $"{Lang.Current["Client.CharacterCreator.Morphology"]}: " + bodyTypesItem.Value;
 
-                SetPedBodyComponent((uint)Clothes.Clothes.BodyTypes[bodyTypesItem.Value]);
+                SetPedBodyComponent((uint)Clothes.BodyTypes[bodyTypesItem.Value]);
             });
 
-            waistTypesItem = new MenuSliderSelectorItem<int>("Poids", 0, Clothes.Clothes.WaistTypes.Count - 1, 0, 1, (value) =>
+            waistTypesItem = new MenuSliderSelectorItem<int>("Poids", 0, Clothes.WaistTypes.Count - 1, 0, 1, (value) =>
             {
                 waistTypesItem.Text = $"{Lang.Current["Client.CharacterCreator.Weight"]}: " + waistTypesItem.Value;
 
-                SetPedBodyComponent((uint)Clothes.Clothes.WaistTypes[waistTypesItem.Value]);
+                SetPedBodyComponent((uint)Clothes.WaistTypes[waistTypesItem.Value]);
             });
 
             bodyMenu.AddItem(bodyTypesItem);
@@ -1462,168 +1462,168 @@ namespace Client.Scripts
             clothesMenu = new MenuContainer(Lang.Current["Client.CharacterCreator.Clothes"].ToString().ToUpper());
             menu.CreateSubMenu(clothesMenu);
 
-            hatsItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Hat"], -1, (gender == Gender.Male ? Clothes.Clothes.HatsMale.Count : Clothes.Clothes.HatsFemale.Count) - 1, -1, 1, (value) =>
+            hatsItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Hat"], -1, (gender == Gender.Male ? Clothes.HatsMale.Count : Clothes.HatsFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(hatsItem, Lang.Current["Client.CharacterCreator.Hat"], gender == Gender.Male ? Clothes.Clothes.HatsMale : Clothes.Clothes.HatsFemale, value);
+                SetPedComponent(hatsItem, Lang.Current["Client.CharacterCreator.Hat"], gender == Gender.Male ? Clothes.HatsMale : Clothes.HatsFemale, value);
             });
 
-            eyewearItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Glasses"], -1, (gender == Gender.Male ? Clothes.Clothes.EyewearMale.Count : Clothes.Clothes.EyewearFemale.Count) - 1, -1, 1, (value) =>
+            eyewearItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Glasses"], -1, (gender == Gender.Male ? Clothes.EyewearMale.Count : Clothes.EyewearFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(eyewearItem, Lang.Current["Client.CharacterCreator.Glasses"], gender == Gender.Male ? Clothes.Clothes.EyewearMale : Clothes.Clothes.EyewearFemale, value);
+                SetPedComponent(eyewearItem, Lang.Current["Client.CharacterCreator.Glasses"], gender == Gender.Male ? Clothes.EyewearMale : Clothes.EyewearFemale, value);
             });
 
-            neckwearItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Bandana"], -1, (gender == Gender.Male ? Clothes.Clothes.NeckwearMale.Count : Clothes.Clothes.NeckwearFemale.Count) - 1, -1, 1, (value) =>
+            neckwearItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Bandana"], -1, (gender == Gender.Male ? Clothes.NeckwearMale.Count : Clothes.NeckwearFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(neckwearItem, Lang.Current["Client.CharacterCreator.Bandana"], gender == Gender.Male ? Clothes.Clothes.NeckwearMale : Clothes.Clothes.NeckwearFemale, value);
+                SetPedComponent(neckwearItem, Lang.Current["Client.CharacterCreator.Bandana"], gender == Gender.Male ? Clothes.NeckwearMale : Clothes.NeckwearFemale, value);
             });
 
-            necktiesItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Tie"], -1, (gender == Gender.Male ? Clothes.Clothes.NecktiesMale.Count : Clothes.Clothes.NecktiesFemale.Count) - 1, -1, 1, (value) =>
+            necktiesItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Tie"], -1, (gender == Gender.Male ? Clothes.NecktiesMale.Count : Clothes.NecktiesFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(necktiesItem, Lang.Current["Client.CharacterCreator.Tie"], gender == Gender.Male ? Clothes.Clothes.NecktiesMale : Clothes.Clothes.NecktiesFemale, value); ;
+                SetPedComponent(necktiesItem, Lang.Current["Client.CharacterCreator.Tie"], gender == Gender.Male ? Clothes.NecktiesMale : Clothes.NecktiesFemale, value); ;
             });
-            shirtsItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Shirt"], -1, (gender == Gender.Male ? Clothes.Clothes.ShirtsMale.Count : Clothes.Clothes.ShirtsFemale.Count) - 1, -1, 1, (value) =>
+            shirtsItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Shirt"], -1, (gender == Gender.Male ? Clothes.ShirtsMale.Count : Clothes.ShirtsFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(shirtsItem, Lang.Current["Client.CharacterCreator.Shirt"], gender == Gender.Male ? Clothes.Clothes.ShirtsMale : Clothes.Clothes.ShirtsFemale, value);
-            });
-
-            suspendersItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Suspenders"], -1, (gender == Gender.Male ? Clothes.Clothes.SuspendersMale.Count : Clothes.Clothes.SuspendersFemale.Count) - 1, -1, 1, (value) =>
-            {
-                SetPedComponent(suspendersItem, Lang.Current["Client.CharacterCreator.Suspenders"], gender == Gender.Male ? Clothes.Clothes.SuspendersMale : Clothes.Clothes.SuspendersFemale, value);
+                SetPedComponent(shirtsItem, Lang.Current["Client.CharacterCreator.Shirt"], gender == Gender.Male ? Clothes.ShirtsMale : Clothes.ShirtsFemale, value);
             });
 
-            vestItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Vest"], -1, (gender == Gender.Male ? Clothes.Clothes.VestMale.Count : Clothes.Clothes.VestFemale.Count) - 1, -1, 1, (value) =>
+            suspendersItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Suspenders"], -1, (gender == Gender.Male ? Clothes.SuspendersMale.Count : Clothes.SuspendersFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(vestItem, Lang.Current["Client.CharacterCreator.Vest"], gender == Gender.Male ? Clothes.Clothes.VestMale : Clothes.Clothes.VestFemale, value);
+                SetPedComponent(suspendersItem, Lang.Current["Client.CharacterCreator.Suspenders"], gender == Gender.Male ? Clothes.SuspendersMale : Clothes.SuspendersFemale, value);
             });
 
-            coatsItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Coat"], -1, (gender == Gender.Male ? Clothes.Clothes.CoatsMale.Count : Clothes.Clothes.CoatsFemale.Count) - 1, -1, 1, (value) =>
+            vestItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Vest"], -1, (gender == Gender.Male ? Clothes.VestMale.Count : Clothes.VestFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(coatsItem, Lang.Current["Client.CharacterCreator.Coat"], gender == Gender.Male ? Clothes.Clothes.CoatsMale : Clothes.Clothes.CoatsFemale, value);
+                SetPedComponent(vestItem, Lang.Current["Client.CharacterCreator.Vest"], gender == Gender.Male ? Clothes.VestMale : Clothes.VestFemale, value);
             });
 
-            coatsMPItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Jacket"], -1, (gender == Gender.Male ? Clothes.Clothes.CoatsMpMale.Count : Clothes.Clothes.CoatsMpFemale.Count) - 1, -1, 1, (value) =>
+            coatsItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Coat"], -1, (gender == Gender.Male ? Clothes.CoatsMale.Count : Clothes.CoatsFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(coatsMPItem, Lang.Current["Client.CharacterCreator.Jacket"], gender == Gender.Male ? Clothes.Clothes.CoatsMpMale : Clothes.Clothes.CoatsMpFemale, value);
+                SetPedComponent(coatsItem, Lang.Current["Client.CharacterCreator.Coat"], gender == Gender.Male ? Clothes.CoatsMale : Clothes.CoatsFemale, value);
             });
 
-            ponchosItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Poncho"], -1, (gender == Gender.Male ? Clothes.Clothes.PonchosMale.Count : Clothes.Clothes.PonchosFemale.Count) - 1, -1, 1, (value) =>
+            coatsMPItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Jacket"], -1, (gender == Gender.Male ? Clothes.CoatsMpMale.Count : Clothes.CoatsMpFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(ponchosItem, Lang.Current["Client.CharacterCreator.Poncho"], gender == Gender.Male ? Clothes.Clothes.PonchosMale : Clothes.Clothes.PonchosFemale, value);
+                SetPedComponent(coatsMPItem, Lang.Current["Client.CharacterCreator.Jacket"], gender == Gender.Male ? Clothes.CoatsMpMale : Clothes.CoatsMpFemale, value);
             });
 
-            cloakItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Cape"], -1, (gender == Gender.Male ? Clothes.Clothes.CloakMale.Count : Clothes.Clothes.CloakFemale.Count) - 1, -1, 1, (value) =>
+            ponchosItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Poncho"], -1, (gender == Gender.Male ? Clothes.PonchosMale.Count : Clothes.PonchosFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(cloakItem, Lang.Current["Client.CharacterCreator.Cape"], gender == Gender.Male ? Clothes.Clothes.CloakMale : Clothes.Clothes.CloakFemale, value);
+                SetPedComponent(ponchosItem, Lang.Current["Client.CharacterCreator.Poncho"], gender == Gender.Male ? Clothes.PonchosMale : Clothes.PonchosFemale, value);
             });
 
-            glovesItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Gloves"], -1, (gender == Gender.Male ? Clothes.Clothes.GlovesMale.Count : Clothes.Clothes.GlovesFemale.Count) - 1, -1, 1, (value) =>
+            cloakItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Cape"], -1, (gender == Gender.Male ? Clothes.CloakMale.Count : Clothes.CloakFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(glovesItem, Lang.Current["Client.CharacterCreator.Gloves"], gender == Gender.Male ? Clothes.Clothes.GlovesMale : Clothes.Clothes.GlovesFemale, value);
+                SetPedComponent(cloakItem, Lang.Current["Client.CharacterCreator.Cape"], gender == Gender.Male ? Clothes.CloakMale : Clothes.CloakFemale, value);
             });
 
-            ringsRightHandItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.RingRightHand"], -1, (gender == Gender.Male ? Clothes.Clothes.RingsRightHandMale.Count : Clothes.Clothes.RingsRightHandFemale.Count) - 1, -1, 1, (value) =>
+            glovesItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Gloves"], -1, (gender == Gender.Male ? Clothes.GlovesMale.Count : Clothes.GlovesFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(ringsRightHandItem, Lang.Current["Client.CharacterCreator.RingRightHand"], gender == Gender.Male ? Clothes.Clothes.RingsRightHandMale : Clothes.Clothes.RingsRightHandFemale, value);
+                SetPedComponent(glovesItem, Lang.Current["Client.CharacterCreator.Gloves"], gender == Gender.Male ? Clothes.GlovesMale : Clothes.GlovesFemale, value);
             });
 
-            ringsLeftHandItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.RingLeftHand"], -1, (gender == Gender.Male ? Clothes.Clothes.RingsLeftHandMale.Count : Clothes.Clothes.RingsLeftHandFemale.Count) - 1, -1, 1, (value) =>
+            ringsRightHandItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.RingRightHand"], -1, (gender == Gender.Male ? Clothes.RingsRightHandMale.Count : Clothes.RingsRightHandFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(ringsLeftHandItem, Lang.Current["Client.CharacterCreator.RingLeftHand"], gender == Gender.Male ? Clothes.Clothes.RingsLeftHandMale : Clothes.Clothes.RingsLeftHandFemale, value);
+                SetPedComponent(ringsRightHandItem, Lang.Current["Client.CharacterCreator.RingRightHand"], gender == Gender.Male ? Clothes.RingsRightHandMale : Clothes.RingsRightHandFemale, value);
             });
 
-            braceletsItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Bracelet"], -1, (gender == Gender.Male ? Clothes.Clothes.BraceletsMale.Count : Clothes.Clothes.BraceletsFemale.Count) - 1, -1, 1, (value) =>
+            ringsLeftHandItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.RingLeftHand"], -1, (gender == Gender.Male ? Clothes.RingsLeftHandMale.Count : Clothes.RingsLeftHandFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(braceletsItem, Lang.Current["Client.CharacterCreator.Bracelet"], gender == Gender.Male ? Clothes.Clothes.BraceletsMale : Clothes.Clothes.BraceletsFemale, value);
+                SetPedComponent(ringsLeftHandItem, Lang.Current["Client.CharacterCreator.RingLeftHand"], gender == Gender.Male ? Clothes.RingsLeftHandMale : Clothes.RingsLeftHandFemale, value);
             });
 
-            gunbeltItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Gunbelt"], -1, (gender == Gender.Male ? Clothes.Clothes.GunbeltMale.Count : Clothes.Clothes.GunbeltFemale.Count) - 1, -1, 1, (value) =>
+            braceletsItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Bracelet"], -1, (gender == Gender.Male ? Clothes.BraceletsMale.Count : Clothes.BraceletsFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(gunbeltItem, Lang.Current["Client.CharacterCreator.Gunbelt"], gender == Gender.Male ? Clothes.Clothes.GunbeltMale : Clothes.Clothes.GunbeltFemale, value);
+                SetPedComponent(braceletsItem, Lang.Current["Client.CharacterCreator.Bracelet"], gender == Gender.Male ? Clothes.BraceletsMale : Clothes.BraceletsFemale, value);
             });
 
-            beltItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Belt"], -1, (gender == Gender.Male ? Clothes.Clothes.BeltMale.Count : Clothes.Clothes.BeltFemale.Count) - 1, -1, 1, (value) =>
+            gunbeltItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Gunbelt"], -1, (gender == Gender.Male ? Clothes.GunbeltMale.Count : Clothes.GunbeltFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(beltItem, Lang.Current["Client.CharacterCreator.Belt"], gender == Gender.Male ? Clothes.Clothes.BeltMale : Clothes.Clothes.BeltFemale, value);
+                SetPedComponent(gunbeltItem, Lang.Current["Client.CharacterCreator.Gunbelt"], gender == Gender.Male ? Clothes.GunbeltMale : Clothes.GunbeltFemale, value);
             });
 
-            buckleItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Buckle"], -1, (gender == Gender.Male ? Clothes.Clothes.BuckleMale.Count : Clothes.Clothes.BuckleFemale.Count) - 1, -1, 1, (value) =>
+            beltItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Belt"], -1, (gender == Gender.Male ? Clothes.BeltMale.Count : Clothes.BeltFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(buckleItem, Lang.Current["Client.CharacterCreator.Buckle"], gender == Gender.Male ? Clothes.Clothes.BuckleMale : Clothes.Clothes.BuckleFemale, value);
+                SetPedComponent(beltItem, Lang.Current["Client.CharacterCreator.Belt"], gender == Gender.Male ? Clothes.BeltMale : Clothes.BeltFemale, value);
             });
 
-            holstersItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Cases"], -1, (gender == Gender.Male ? Clothes.Clothes.HolstersMale.Count : Clothes.Clothes.HolstersFemale.Count) - 1, -1, 1, (value) =>
+            buckleItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Buckle"], -1, (gender == Gender.Male ? Clothes.BuckleMale.Count : Clothes.BuckleFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(holstersItem, Lang.Current["Client.CharacterCreator.Cases"], gender == Gender.Male ? Clothes.Clothes.HolstersMale : Clothes.Clothes.HolstersFemale, value);
+                SetPedComponent(buckleItem, Lang.Current["Client.CharacterCreator.Buckle"], gender == Gender.Male ? Clothes.BuckleMale : Clothes.BuckleFemale, value);
             });
 
-            pantsItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Pants"], -1, (gender == Gender.Male ? Clothes.Clothes.PantsMale.Count : Clothes.Clothes.PantsFemale.Count) - 1, -1, 1, (value) =>
+            holstersItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Cases"], -1, (gender == Gender.Male ? Clothes.HolstersMale.Count : Clothes.HolstersFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(pantsItem, Lang.Current["Client.CharacterCreator.Pants"], gender == Gender.Male ? Clothes.Clothes.PantsMale : Clothes.Clothes.PantsFemale, value);
+                SetPedComponent(holstersItem, Lang.Current["Client.CharacterCreator.Cases"], gender == Gender.Male ? Clothes.HolstersMale : Clothes.HolstersFemale, value);
             });
 
-            skirtsItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Skirt"], -1, Clothes.Clothes.SkirtsFemale.Count - 1, -1, 1, (value) =>
+            pantsItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Pants"], -1, (gender == Gender.Male ? Clothes.PantsMale.Count : Clothes.PantsFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(skirtsItem, Lang.Current["Client.CharacterCreator.Skirt"], Clothes.Clothes.SkirtsFemale, value);
+                SetPedComponent(pantsItem, Lang.Current["Client.CharacterCreator.Pants"], gender == Gender.Male ? Clothes.PantsMale : Clothes.PantsFemale, value);
             });
 
-            bootsItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Boots"], -1, (gender == Gender.Male ? Clothes.Clothes.BootsMale.Count : Clothes.Clothes.BootsFemale.Count) - 1, -1, 1, (value) =>
+            skirtsItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Skirt"], -1, Clothes.SkirtsFemale.Count - 1, -1, 1, (value) =>
             {
-                SetPedComponent(bootsItem, Lang.Current["Client.CharacterCreator.Boots"], gender == Gender.Male ? Clothes.Clothes.BootsMale : Clothes.Clothes.BootsFemale, value);
+                SetPedComponent(skirtsItem, Lang.Current["Client.CharacterCreator.Skirt"], Clothes.SkirtsFemale, value);
             });
 
-            chapsItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Chaps"], -1, (gender == Gender.Male ? Clothes.Clothes.ChapsMale.Count : Clothes.Clothes.ChapsFemale.Count) - 1, -1, 1, (value) =>
+            bootsItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Boots"], -1, (gender == Gender.Male ? Clothes.BootsMale.Count : Clothes.BootsFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(chapsItem, Lang.Current["Client.CharacterCreator.Chaps"], gender == Gender.Male ? Clothes.Clothes.ChapsMale : Clothes.Clothes.ChapsFemale, value);
+                SetPedComponent(bootsItem, Lang.Current["Client.CharacterCreator.Boots"], gender == Gender.Male ? Clothes.BootsMale : Clothes.BootsFemale, value);
             });
 
-            spursItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Spurs"], -1, (gender == Gender.Male ? Clothes.Clothes.SpursMale.Count : Clothes.Clothes.SpursFemale.Count) - 1, -1, 1, (value) =>
+            chapsItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Chaps"], -1, (gender == Gender.Male ? Clothes.ChapsMale.Count : Clothes.ChapsFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(spursItem, Lang.Current["Client.CharacterCreator.Spurs"], gender == Gender.Male ? Clothes.Clothes.SpursMale : Clothes.Clothes.SpursFemale, value);
+                SetPedComponent(chapsItem, Lang.Current["Client.CharacterCreator.Chaps"], gender == Gender.Male ? Clothes.ChapsMale : Clothes.ChapsFemale, value);
             });
 
-            spatsItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Spats"], -1, (gender == Gender.Male ? Clothes.Clothes.SpatsMale.Count : Clothes.Clothes.SpatsFemale.Count) - 1, -1, 1, (value) =>
+            spursItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Spurs"], -1, (gender == Gender.Male ? Clothes.SpursMale.Count : Clothes.SpursFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(spatsItem, Lang.Current["Client.CharacterCreator.Spats"], gender == Gender.Male ? Clothes.Clothes.SpatsMale : Clothes.Clothes.SpatsFemale, value);
+                SetPedComponent(spursItem, Lang.Current["Client.CharacterCreator.Spurs"], gender == Gender.Male ? Clothes.SpursMale : Clothes.SpursFemale, value);
             });
 
-            satchelsItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Satchel"], -1, (gender == Gender.Male ? Clothes.Clothes.SatchelsMale.Count : Clothes.Clothes.SatchelsFemale.Count) - 1, -1, 1, (value) =>
+            spatsItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Spats"], -1, (gender == Gender.Male ? Clothes.SpatsMale.Count : Clothes.SpatsFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(satchelsItem, Lang.Current["Client.CharacterCreator.Satchel"], gender == Gender.Male ? Clothes.Clothes.SatchelsMale : Clothes.Clothes.SatchelsFemale, value);
+                SetPedComponent(spatsItem, Lang.Current["Client.CharacterCreator.Spats"], gender == Gender.Male ? Clothes.SpatsMale : Clothes.SpatsFemale, value);
             });
 
-            masksItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Mask"], -1, (gender == Gender.Male ? Clothes.Clothes.MasksMale.Count : Clothes.Clothes.MasksFemale.Count) - 1, -1, 1, (value) =>
+            satchelsItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Satchel"], -1, (gender == Gender.Male ? Clothes.SatchelsMale.Count : Clothes.SatchelsFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(masksItem, Lang.Current["Client.CharacterCreator.Mask"], gender == Gender.Male ? Clothes.Clothes.MasksMale : Clothes.Clothes.MasksFemale, value);
+                SetPedComponent(satchelsItem, Lang.Current["Client.CharacterCreator.Satchel"], gender == Gender.Male ? Clothes.SatchelsMale : Clothes.SatchelsFemale, value);
             });
 
-            loadoutsItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Strap"], -1, (gender == Gender.Male ? Clothes.Clothes.LoadoutsMale.Count : Clothes.Clothes.LoadoutsFemale.Count) - 1, -1, 1, (value) =>
+            masksItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Mask"], -1, (gender == Gender.Male ? Clothes.MasksMale.Count : Clothes.MasksFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(loadoutsItem, Lang.Current["Client.CharacterCreator.Strap"], gender == Gender.Male ? Clothes.Clothes.LoadoutsMale : Clothes.Clothes.LoadoutsFemale, value);
+                SetPedComponent(masksItem, Lang.Current["Client.CharacterCreator.Mask"], gender == Gender.Male ? Clothes.MasksMale : Clothes.MasksFemale, value);
             });
 
-            legAttachmentsItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.LegAttachment"], -1, (gender == Gender.Male ? Clothes.Clothes.LegAttachmentsMale.Count : Clothes.Clothes.LegAttachmentsFemale.Count) - 1, -1, 1, (value) =>
+            loadoutsItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Strap"], -1, (gender == Gender.Male ? Clothes.LoadoutsMale.Count : Clothes.LoadoutsFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(legAttachmentsItem, Lang.Current["Client.CharacterCreator.LegAttachment"], gender == Gender.Male ? Clothes.Clothes.LegAttachmentsMale : Clothes.Clothes.LegAttachmentsFemale, value);
+                SetPedComponent(loadoutsItem, Lang.Current["Client.CharacterCreator.Strap"], gender == Gender.Male ? Clothes.LoadoutsMale : Clothes.LoadoutsFemale, value);
             });
 
-            gauntletsItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Gauntlets"], -1, (gender == Gender.Male ? Clothes.Clothes.GauntletsMale.Count : Clothes.Clothes.GauntletsFemale.Count) - 1, -1, 1, (value) =>
+            legAttachmentsItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.LegAttachment"], -1, (gender == Gender.Male ? Clothes.LegAttachmentsMale.Count : Clothes.LegAttachmentsFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(gauntletsItem, Lang.Current["Client.CharacterCreator.Gauntlets"], gender == Gender.Male ? Clothes.Clothes.GauntletsMale : Clothes.Clothes.GauntletsFemale, value);
+                SetPedComponent(legAttachmentsItem, Lang.Current["Client.CharacterCreator.LegAttachment"], gender == Gender.Male ? Clothes.LegAttachmentsMale : Clothes.LegAttachmentsFemale, value);
             });
 
-            //badgesItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Badges"], -1, (gender == Gender.Male ? Clothes.Clothes.BadgesMale.Count : Clothes.Clothes.BadgesFemale.Count) - 1, -1, 1, (value) =>
+            gauntletsItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Gauntlets"], -1, (gender == Gender.Male ? Clothes.GauntletsMale.Count : Clothes.GauntletsFemale.Count) - 1, -1, 1, (value) =>
+            {
+                SetPedComponent(gauntletsItem, Lang.Current["Client.CharacterCreator.Gauntlets"], gender == Gender.Male ? Clothes.GauntletsMale : Clothes.GauntletsFemale, value);
+            });
+
+            //badgesItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Badges"], -1, (gender == Gender.Male ? Clothes.BadgesMale.Count : Clothes.BadgesFemale.Count) - 1, -1, 1, (value) =>
             //{
-            //    SetPedComponent(badgesItem, Lang.Current["Client.CharacterCreator.Badges"], gender == Gender.Male ? Clothes.Clothes.BadgesMale : Clothes.Clothes.BadgesFemale, value);
+            //    SetPedComponent(badgesItem, Lang.Current["Client.CharacterCreator.Badges"], gender == Gender.Male ? Clothes.BadgesMale : Clothes.BadgesFemale, value);
             //});
 
-            //armorsItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Armor"], -1, (gender == Gender.Male ? Clothes.Clothes.ArmorsMale.Count : Clothes.Clothes.ArmorsFemale.Count) - 1, -1, 1, (value) =>
+            //armorsItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Armor"], -1, (gender == Gender.Male ? Clothes.ArmorsMale.Count : Clothes.ArmorsFemale.Count) - 1, -1, 1, (value) =>
             //{
-            //    SetPedComponent(armorsItem, Lang.Current["Client.CharacterCreator.Armor"], gender == Gender.Male ? Clothes.Clothes.ArmorsMale : Clothes.Clothes.ArmorsFemale, value);
+            //    SetPedComponent(armorsItem, Lang.Current["Client.CharacterCreator.Armor"], gender == Gender.Male ? Clothes.ArmorsMale : Clothes.ArmorsFemale, value);
             //});
 
-            accessoriesItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Accessories"], -1, (gender == Gender.Male ? Clothes.Clothes.AccessoriesMale.Count : Clothes.Clothes.AccessoriesFemale.Count) - 1, -1, 1, (value) =>
+            accessoriesItem = new MenuSliderSelectorItem<int>(Lang.Current["Client.CharacterCreator.Accessories"], -1, (gender == Gender.Male ? Clothes.AccessoriesMale.Count : Clothes.AccessoriesFemale.Count) - 1, -1, 1, (value) =>
             {
-                SetPedComponent(accessoriesItem, Lang.Current["Client.CharacterCreator.Accessories"], gender == Gender.Male ? Clothes.Clothes.AccessoriesMale : Clothes.Clothes.AccessoriesFemale, value);
+                SetPedComponent(accessoriesItem, Lang.Current["Client.CharacterCreator.Accessories"], gender == Gender.Male ? Clothes.AccessoriesMale : Clothes.AccessoriesFemale, value);
             });
 
             clothesMenu.AddItem(hatsItem);
@@ -1664,9 +1664,9 @@ namespace Client.Scripts
         {
             var values = new Dictionary<int, float>();
 
-            for (int i = 0; i < Clothes.Clothes.FaceParts.Count; i++)
+            for (int i = 0; i < Clothes.FaceParts.Count; i++)
             {
-                var part = int.Parse(Clothes.Clothes.FaceParts[i], System.Globalization.NumberStyles.AllowHexSpecifier);
+                var part = int.Parse(Clothes.FaceParts[i], System.Globalization.NumberStyles.AllowHexSpecifier);
                 var rand = new Random(Environment.TickCount * i).Next(-10, 10) / 10f;
                 SetPedFaceFeature(part, rand);
                 values.Add(part, rand);

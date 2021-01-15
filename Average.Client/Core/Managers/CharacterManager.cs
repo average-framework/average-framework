@@ -63,7 +63,7 @@ namespace Client.Core.Managers
 
         public CharacterManager(Main main) : base(main, "character_manager")
         {
-            Clothes = Configuration<ClothModelConfig>.Parse("utils/clothes");
+            Clothes = Configuration<Clothing>.Parse("utils/clothes");
 
             permission = Main.GetScript<PermissionManager>();
             var task = Main.GetScript<TaskManager>();
@@ -193,8 +193,8 @@ namespace Client.Core.Managers
 
         public void SetPedBodyComponents()
         {
-            SetPedBodyComponent((uint)Clothes.Clothes.BodyTypes[Data.BodyType]);
-            SetPedBodyComponent((uint)Clothes.Clothes.WaistTypes[Data.WaistType]);
+            SetPedBodyComponent((uint)Clothes.BodyTypes[Data.BodyType]);
+            SetPedBodyComponent((uint)Clothes.WaistTypes[Data.WaistType]);
         }
 
         public async void UpdateOverlay()
@@ -249,76 +249,76 @@ namespace Client.Core.Managers
                 await Delay(0);
             }
 
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.HairMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.HairFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.BeardMale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.EyesMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.EyesFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.TeethMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.TeethFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.BraceletsMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.BraceletsFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.RingsLeftHandMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.RingsLeftHandFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.HolstersMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.HolstersFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.EyewearMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.EyewearFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.HatsMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.HatsFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.ShirtsMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.ShirtsFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.VestMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.VestFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.PantsMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.PantsFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.SpursMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.SpursFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.ChapsMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.ChapsFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.CloakMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.CloakFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.BadgesMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.BadgesFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.MasksMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.MasksFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.SpatsMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.SpatsFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.NeckwearMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.NeckwearFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.BootsMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.BootsFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.AccessoriesMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.AccessoriesFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.GauntletsMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.GauntletsFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.NecktiesMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.NecktiesFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.SuspendersMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.SuspendersFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.GunbeltMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.GunbeltFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.BeltMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.BeltFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.BuckleMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.BuckleFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.CoatsMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.CoatsFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.CoatsMpMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.CoatsMpFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.PonchosMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.PonchosFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.ArmorsMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.ArmorsFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.GlovesMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.GlovesFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.SatchelsMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.SatchelsFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.LegAttachmentsMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.LegAttachmentsFemale);
-            RemoveEmptyComponents(Gender.Male, Clothes.Clothes.LoadoutsMale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.LoadoutsFemale);
-            RemoveEmptyComponents(Gender.Female, Clothes.Clothes.SkirtsFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.HairMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.HairFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.BeardMale);
+            RemoveEmptyComponents(Gender.Male, Clothes.EyesMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.EyesFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.TeethMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.TeethFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.BraceletsMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.BraceletsFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.RingsLeftHandMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.RingsLeftHandFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.HolstersMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.HolstersFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.EyewearMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.EyewearFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.HatsMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.HatsFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.ShirtsMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.ShirtsFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.VestMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.VestFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.PantsMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.PantsFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.SpursMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.SpursFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.ChapsMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.ChapsFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.CloakMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.CloakFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.BadgesMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.BadgesFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.MasksMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.MasksFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.SpatsMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.SpatsFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.NeckwearMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.NeckwearFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.BootsMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.BootsFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.AccessoriesMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.AccessoriesFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.GauntletsMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.GauntletsFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.NecktiesMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.NecktiesFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.SuspendersMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.SuspendersFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.GunbeltMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.GunbeltFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.BeltMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.BeltFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.BuckleMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.BuckleFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.CoatsMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.CoatsFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.CoatsMpMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.CoatsMpFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.PonchosMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.PonchosFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.ArmorsMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.ArmorsFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.GlovesMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.GlovesFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.SatchelsMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.SatchelsFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.LegAttachmentsMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.LegAttachmentsFemale);
+            RemoveEmptyComponents(Gender.Male, Clothes.LoadoutsMale);
+            RemoveEmptyComponents(Gender.Female, Clothes.LoadoutsFemale);
+            RemoveEmptyComponents(Gender.Female, Clothes.SkirtsFemale);
 
             IsComponentsReady = true;
         }
