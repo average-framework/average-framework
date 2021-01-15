@@ -1,5 +1,4 @@
-﻿using CitizenFX.Core;
-using Client.Core.Enums;
+﻿using Client.Core.Enums;
 using Client.Models;
 using System.Collections.Generic;
 using static Shared.Core.DataModels.CharacterData;

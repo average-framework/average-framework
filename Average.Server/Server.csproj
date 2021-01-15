@@ -85,7 +85,7 @@
     <Compile Include="Core\Managers\TaskManager.cs" />
     <Compile Include="Events.cs" />
     <Compile Include="Main.cs" />
-    <Compile Include="Models\DoorModel.cs" />
+    <Compile Include="Models\Door.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\Managers\CfxManager.cs" />
     <Compile Include="Core\Managers\PermissionManager.cs" />

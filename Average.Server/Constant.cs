@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
-using Server.Configs;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Server
 {
@@ -9,7 +7,7 @@ namespace Server
         #region Configs
 
         public static dynamic Config { get; set; }
-        public static DoorConfig DoorsInfos { get; set; }
+        public static List<Models.Door> DoorsInfos { get; set; }
 
         #endregion
     }
