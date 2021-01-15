@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B95A3DB2-D4D9-4766-BBD4-DF941B07F82B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Client</RootNamespace>
+    <AssemblyName>avgc.net</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\redm\resources\avg\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\redm\resources\avg\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>8.0</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>8.0</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="avgsh.net, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\avgsh.net.dll</HintPath>
+    </Reference>
+    <Reference Include="CitizenFX.Client.Core, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\CitizenFX.Client.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Constant.cs" />
+    <Compile Include="Core\Internal\Configuration.cs" />
+    <Compile Include="Core\Enums\ClothCategories.cs" />
+    <Compile Include="Core\Enums\Controls.cs" />
+    <Compile Include="Core\Enums\Emotes.cs" />
+    <Compile Include="Core\Enums\EntityType.cs" />
+    <Compile Include="Core\Enums\FaceParts.cs" />
+    <Compile Include="Core\Enums\HorseComponentsCategories.cs" />
+    <Compile Include="Core\Enums\WalkStyles.cs" />
+    <Compile Include="Core\Enums\Weapon.cs" />
+    <Compile Include="Core\Enums\WeatherType.cs" />
+    <Compile Include="Core\Extensions\ObjectExtensions.cs" />
+    <Compile Include="Core\Extensions\FloatExtensions.cs" />
+    <Compile Include="Core\Extensions\Vector3Extensions.cs" />
+    <Compile Include="Core\Helpers\MathHelpers.cs" />
+    <Compile Include="Core\UI\HitMenu\HitMenu.cs" />
+    <Compile Include="Core\Interfaces\IMenuItem.cs" />
+    <Compile Include="Core\Interfaces\ITask.cs" />
+    <Compile Include="Core\Internal\Lang.cs" />
+    <Compile Include="Core\Controllers\PlayerController.cs" />
+    <Compile Include="Core\Rpc\RpcHandler.cs" />
+    <Compile Include="Core\Rpc\RpcRequest.cs" />
+    <Compile Include="Core\Rpc\RpcSerializer.cs" />
+    <Compile Include="Core\Rpc\RpcTrigger.cs" />
+    <Compile Include="Core\Managers\TaskManager.cs" />
+    <Compile Include="Core\UI\HitMenu\HitMenuContainer.cs" />
+    <Compile Include="Core\UI\HitMenu\HitMenuItem.cs" />
+    <Compile Include="Core\UI\Menu\MenuContainer.cs" />
+    <Compile Include="Core\UI\Menu\MenuItem.cs" />
+    <Compile Include="Core\UI\Menu\MenuItemCheckbox.cs" />
+    <Compile Include="Core\UI\Menu\MenuItemList.cs" />
+    <Compile Include="Core\UI\Menu\MenuItemSlider.cs" />
+    <Compile Include="Core\UI\Menu\MenuSliderSelectorItem.cs" />
+    <Compile Include="Core\UI\Menu\MenuStatsItem.cs" />
+    <Compile Include="Core\UI\Menu\MenuTextboxItem.cs" />
+    <Compile Include="Models\ClothModel.cs" />
+    <Compile Include="Models\ImapModel.cs" />
+    <Compile Include="Models\DoorInfoModel.cs" />
+    <Compile Include="Models\MyInteriorModel.cs" />
+    <Compile Include="Models\InteriorSetModel.cs" />
+    <Compile Include="Models\InteriorModel.cs" />
+    <Compile Include="Models\PedOverlayModel.cs" />
+    <Compile Include="Models\PedInfoModel.cs" />
+    <Compile Include="Models\MyImapModel.cs" />
+    <Compile Include="Core\Managers\BlipManager.cs" />
+    <Compile Include="Core\Managers\MapManager.cs" />
+    <Compile Include="Core\Internal\CAPI.cs" />
+    <Compile Include="Core\Enums\Keys.cs" />
+    <Compile Include="Core\Enums\MarkerType.cs" />
+    <Compile Include="Core\Enums\PostEffect.cs" />
+    <Compile Include="Core\Enums\Timecycles.cs" />
+    <Compile Include="Core\Internal\Log.cs" />
+    <Compile Include="Events.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="Models\PedComponentModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Core\Script.cs" />
+    <Compile Include="Core\Managers\NpcManager.cs" />
+    <Compile Include="Core\Managers\PermissionManager.cs" />
+    <Compile Include="Core\User.cs" />
+    <Compile Include="Scripts\CharacterCreator.cs" />
+    <Compile Include="Core\Managers\CharacterManager.cs" />
+    <Compile Include="Core\Enums\Gender.cs" />
+    <Compile Include="Core\Managers\DoorManager.cs" />
+    <Compile Include="Core\UI\Hud.cs" />
+    <Compile Include="Core\UI\Menu\Menu.cs" />
+    <Compile Include="Core\UI\NUI.cs" />
+    <Compile Include="Core\Managers\SpawnManager.cs" />
+    <Compile Include="Settings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\MongoDB.Libmongocrypt.1.0.0\build\MongoDB.Libmongocrypt.targets" Condition="Exists('..\packages\MongoDB.Libmongocrypt.1.0.0\build\MongoDB.Libmongocrypt.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Ce projet fait référence à des packages NuGet qui sont manquants sur cet ordinateur. Utilisez l'option de restauration des packages NuGet pour les télécharger. Pour plus d'informations, consultez http://go.microsoft.com/fwlink/?LinkID=322105. Le fichier manquant est : {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MongoDB.Libmongocrypt.1.0.0\build\MongoDB.Libmongocrypt.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MongoDB.Libmongocrypt.1.0.0\build\MongoDB.Libmongocrypt.targets'))" />
+  </Target>
+</Project>
