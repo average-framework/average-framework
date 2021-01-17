@@ -68,11 +68,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configs\DoorConfig.cs" />
     <Compile Include="Constant.cs" />
     <Compile Include="Core\Interfaces\ITask.cs" />
     <Compile Include="Core\Internal\CAPI.cs" />
-    <Compile Include="Core\Internal\Config.cs" />
+    <Compile Include="Core\Internal\Configuration.cs" />
     <Compile Include="Core\Internal\Lang.cs" />
     <Compile Include="Core\Internal\Log.cs" />
     <Compile Include="Core\Data\MySQL.cs" />

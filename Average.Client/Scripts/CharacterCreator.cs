@@ -453,8 +453,6 @@ namespace Client.Scripts
 
             var user = Main.GetScript<User>();
 
-            Log.Warn("scale: " + pedScaleItem.Value);
-
             var characterData = new CharacterData
             {
                 CharacterId = RandomString(),

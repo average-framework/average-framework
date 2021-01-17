@@ -1,7 +1,8 @@
 ﻿using CitizenFX.Core;
-using Server.Configs;
 using Server.Core.Internal;
+using Server.Models;
 using System;
+using System.Collections.Generic;
 
 namespace Server.Core.Managers
 {
@@ -11,9 +12,9 @@ namespace Server.Core.Managers
 
         private void Init()
         {
-            Constant.DoorsInfos = Configuration<DoorConfig>.Parse("config/my_doors");
+            Constant.DoorsInfos = Configuration<List<Door>>.Parse("config/my_doors");
 
-            Event(Events.Door.GetDoors).On((message, callback) => callback(Constant.DoorsInfos.Doors.ToArray()));
+            Event(Events.Door.GetDoors).On((message, callback) => callback(Constant.DoorsInfos.ToArray()));
         }
 
         #region Events
@@ -21,7 +22,7 @@ namespace Server.Core.Managers
         [EventHandler(Events.Door.SetDoorState)]
         private void SetDoorStateEvent(Vector3 position)
         {
-            var door = Constant.DoorsInfos.Doors.Find(x =>
+            var door = Constant.DoorsInfos.Find(x =>
                 Math.Round(x.Position.X) == Math.Round(position.X) &&
                 Math.Round(x.Position.Y) == Math.Round(position.Y) &&
                 Math.Round(x.Position.Z) == Math.Round(position.Z));
@@ -33,7 +34,7 @@ namespace Server.Core.Managers
         [EventHandler(Events.Door.SetDefaultDoorState)]
         private void SetDefaultDoorStateEvent(Vector3 position, bool isLocked)
         {
-            var door = Constant.DoorsInfos.Doors.Find(x =>
+            var door = Constant.DoorsInfos.Find(x =>
                 Math.Round(x.Position.X) == Math.Round(position.X) &&
                 Math.Round(x.Position.Y) == Math.Round(position.Y) &&
                 Math.Round(x.Position.Z) == Math.Round(position.Z));
