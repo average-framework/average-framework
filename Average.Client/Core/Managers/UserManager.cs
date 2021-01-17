@@ -2,13 +2,13 @@
 using Shared.DataModels;
 using System.Threading.Tasks;
 
-namespace Client.Core
+namespace Client.Core.Managers
 {
-    public class User : Script
+    public class UserManager : Script
     {
         public UserData Data { get; private set; }
 
-        public User(Main main) : base(main) => Load();
+        public UserManager(Main main) : base(main) => Load();
 
         public async Task IsReady()
         {

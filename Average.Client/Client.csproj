@@ -139,7 +139,7 @@
     <Compile Include="Core\Script.cs" />
     <Compile Include="Core\Managers\NpcManager.cs" />
     <Compile Include="Core\Managers\PermissionManager.cs" />
-    <Compile Include="Core\User.cs" />
+    <Compile Include="Core\Managers\UserManager.cs" />
     <Compile Include="Scripts\CharacterCreator.cs" />
     <Compile Include="Core\Managers\CharacterManager.cs" />
     <Compile Include="Core\Enums\Gender.cs" />

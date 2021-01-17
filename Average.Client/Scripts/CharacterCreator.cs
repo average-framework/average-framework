@@ -451,7 +451,7 @@ namespace Client.Scripts
                 characterClothes.Remove("0");
             }
 
-            var user = Main.GetScript<User>();
+            var user = Main.GetScript<UserManager>();
 
             var characterData = new CharacterData
             {

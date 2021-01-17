@@ -10,7 +10,7 @@ namespace Client.Core.UI.HitMenu
 {
     public class HitMenu : Script
     {
-        protected User user;
+        protected UserManager user;
         protected CharacterManager character;
         protected RaycastHit entity;
         protected HitMenuContainer currentMenuContainer;
@@ -22,7 +22,7 @@ namespace Client.Core.UI.HitMenu
 
         public HitMenu(Main main) : base(main)
         {
-            user = Main.GetScript<User>();
+            user = Main.GetScript<UserManager>();
             character = Main.GetScript<CharacterManager>();
 
             Init();
