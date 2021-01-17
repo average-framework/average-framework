@@ -22,39 +22,6 @@ namespace Client.Core.Managers
 {
     public class CharacterManager : Script
     {
-        public class CharacterOverlayInfo
-        {
-            public string Name { get; private set; }
-            public uint Id { get; private set; }
-            public uint Albedo { get; private set; }
-            public uint Normal { get; private set; }
-            public uint Ma { get; private set; }
-
-            public CharacterOverlayInfo(string name, uint id, uint albedo, uint normal, uint ma)
-            {
-                Name = name;
-                Id = id;
-                Albedo = albedo;
-                Normal = normal;
-                Ma = ma;
-            }
-
-            public CharacterOverlayInfo(string name, uint id, uint albedo, uint normal)
-            {
-                Name = name;
-                Id = id;
-                Albedo = albedo;
-                Normal = normal;
-            }
-
-            public CharacterOverlayInfo(string name, uint id, uint albedo)
-            {
-                Name = name;
-                Id = id;
-                Albedo = albedo;
-            }
-        }
-
         protected PermissionManager permission;
         protected int textureId = -1;
 
@@ -134,6 +101,12 @@ namespace Client.Core.Managers
             SetPedBodyComponents();
             UpdateOverlay();
             SetPedClothes();
+
+            await Delay(0);
+
+            SetPedComponentDisabled(PlayerPedId(), 0x3F1F01E5, 0);
+            SetPedComponentDisabled(PlayerPedId(), 0xDA0E2C55, 0);
+            UpdatePedVariation();
 
             if (Main.ScriptIsStarted<PlayerController>())
             {

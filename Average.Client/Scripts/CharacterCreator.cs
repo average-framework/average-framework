@@ -14,9 +14,9 @@ using System.Collections.Generic;
 using System.Linq;
 using static CitizenFX.Core.Native.API;
 using static Client.Constant;
+using static Client.Core.Internal.CAPI;
 using static Shared.Core.DataModels.CharacterData;
 using Hash = CitizenFX.Core.Native.Hash;
-using static Client.Core.Internal.CAPI;
 
 namespace Client.Scripts
 {
@@ -597,17 +597,15 @@ namespace Client.Scripts
         public void Init(Vector3 spawnPosition, float heading)
         {
             IsOpen = true;
+            Main.GetScript<Menu>().CanCloseMenu = false;
+            mainMenu = new MenuContainer(Lang.Current["Client.CharacterCreator.CreatingCharacter"]);
 
             SetWeatherType((uint)WeatherType.Sunny, true, true, true, 0f, false);
             SetWeatherTypeFrozen(true);
             NetworkClockTimeOverride(12, 0, 0, 1, true);
             PauseClock(true, 0);
 
-            Main.GetScript<Menu>().CanCloseMenu = false;
-
             FreezeEntityPosition(PlayerPedId(), false);
-
-            mainMenu = new MenuContainer(Lang.Current["Client.CharacterCreator.CreatingCharacter"]);
 
             InitClothMenu();
             InitFaceMenu();
@@ -619,18 +617,8 @@ namespace Client.Scripts
             mainMenu.AddItem(new MenuItem(Lang.Current["Client.CharacterCreator.Info"], infoMenu));
             mainMenu.AddItem(new MenuItem(Lang.Current["Client.CharacterCreator.Head"], faceMenu));
             mainMenu.AddItem(new MenuItem(Lang.Current["Client.CharacterCreator.Body"], bodyMenu));
-            mainMenu.AddItem(new MenuItem(Lang.Current["Client.CharacterCreator.Clothes"], clothesMenu, () =>
-            {
-                foreach (var item in clothesMenu.Items)
-                {
-                    var cItem = (MenuSliderSelectorItem<int>)item;
-                }
-            }));
-
-            mainMenu.AddItem(new MenuItem(Lang.Current["Client.CharacterCreator.CreateCharacter"], () =>
-            {
-                Save();
-            }));
+            mainMenu.AddItem(new MenuItem(Lang.Current["Client.CharacterCreator.Clothes"], clothesMenu, () => { }));
+            mainMenu.AddItem(new MenuItem(Lang.Current["Client.CharacterCreator.CreateCharacter"], () => Save()));
 
             menu.CreateSubMenu(mainMenu);
             menu.OpenMenu(mainMenu);
@@ -761,7 +749,6 @@ namespace Client.Scripts
                 SetPlayerModel(model);
 
                 await Delay(0);
-                //await Delay(1000);
 
                 InitDefaultPed();
 
@@ -1878,7 +1865,7 @@ namespace Client.Scripts
         [EventHandler(Events.CFX.OnResourceStop)]
         private void OnResourceStop(string resourceName)
         {
-            if (resourceName == Constant.ResourceName)
+            if (resourceName == ResourceName)
             {
                 SetCamActive(defaultCamera, false);
                 SetCamActive(faceCamera, false);

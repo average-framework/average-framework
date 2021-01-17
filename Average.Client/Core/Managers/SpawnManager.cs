@@ -75,6 +75,10 @@ namespace Client.Core.Managers
 
             ClearPlayerWantedLevel(PlayerId());
 
+            SetPedComponentDisabled(PlayerPedId(), 0x3F1F01E5, 0);
+            SetPedComponentDisabled(PlayerPedId(), 0xDA0E2C55, 0);
+            UpdatePedVariation();
+
             Main.LoadScript(new CharacterCreator(Main));
 
             var charCreator = Main.GetScript<CharacterCreator>();

@@ -115,6 +115,7 @@
     <Compile Include="Core\UI\Menu\MenuStatsItem.cs" />
     <Compile Include="Core\UI\Menu\MenuTextboxItem.cs" />
     <Compile Include="Models\Clothing.cs" />
+    <Compile Include="Models\Door.cs" />
     <Compile Include="Models\Imap.cs" />
     <Compile Include="Models\DoorInfo.cs" />
     <Compile Include="Models\MyInterior.cs" />
