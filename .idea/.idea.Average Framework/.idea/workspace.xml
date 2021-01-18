@@ -7,6 +7,20 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -25,6 +39,7 @@
     <setting file="file://$PROJECT_DIR$/Average.Server/Main.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Models/Objects.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Server/Scripts/MapEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Core/Managers/CharacterManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Server/Models/MapObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Core/Managers/PermissionManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Core/Managers/TaskManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -32,13 +47,13 @@
     <setting file="file://$PROJECT_DIR$/Average.Client/Core/Interfaces/ITask.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Scripts/MapEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Models/MapScene.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Core/Script.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Models/MapObject.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Average.Server/Core/Script.cs" />
-        <option value="$PROJECT_DIR$/Average.Client/Main.cs" />
         <option value="$PROJECT_DIR$/Average.Server/Core/Interfaces/ITask.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Core/Managers/PermissionManager.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Core/Interfaces/ITask.cs" />
@@ -50,6 +65,8 @@
         <option value="$PROJECT_DIR$/Average.Client/Models/MapObject.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Models/MapScene.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Constant.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Main.cs" />
+        <option value="$PROJECT_DIR$/Average.Server/Main.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Scripts/MapEditor.cs" />
       </list>
     </option>
@@ -72,7 +89,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TWShift.3" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -110,15 +127,20 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+  </component>
   <component name="WindowStateProjectService">
     <state x="452" y="95" key="#Notifications" timestamp="1610986957376">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="452" y="95" key="#Notifications/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610986957376" />
-    <state x="277" y="92" key="SettingsEditor" timestamp="1610987022464">
+    <state x="277" y="92" key="SettingsEditor" timestamp="1610991235332">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="277" y="92" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610987022464" />
+    <state x="277" y="92" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610991235332" />
     <state x="728" y="409" width="865" height="368" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1610984078787">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

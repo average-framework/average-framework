@@ -6,15 +6,16 @@ using Server.Core.Managers;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using Server.Scripts;
 
 namespace Server
 {
     public class Main : BaseScript
     {
-        protected List<Script> scripts = new List<Script>();
+        private List<Script> scripts = new List<Script>();
 
         public static EventHandlerDictionary Handlers { get; private set; }
-        public static new PlayerList Players { get; private set; }
+        public new static PlayerList Players { get; private set; }
 
         public Main()
         {
@@ -47,6 +48,7 @@ namespace Server
             LoadScript(new PermissionManager(this));
             LoadScript(new CharacterManager(this));
             LoadScript(new DoorManager(this));
+            LoadScript(new MapEditor(this));
         }
 
         #region DO NOT TOUCH THIS

@@ -8,7 +8,7 @@ namespace Server.Core
 {
     public class UserManager : Script
     {
-        public UserManager(Main main) : base(main, "user")
+        public UserManager(Main main) : base(main, "user_manager")
         {
             Event(Events.User.OnGetUserData).On((message, callback) => callback(Get(Players[message.Target])));
         }

@@ -75,6 +75,8 @@ namespace Client.Scripts
             task = Main.GetScript<TaskManager>();
             character = Main.GetScript<CharacterManager>();
 
+            Constant.Objects = Configuration<Models.Objects>.Parse("utils/objects");
+            
             Task.Factory.StartNew(async () =>
             {
                 await character.IsReady();
@@ -119,8 +121,7 @@ namespace Client.Scripts
 
                         obj.Entity = entity;
 
-                        SetEntityCoordsNoOffset(entity, obj.Position.X, obj.Position.Y, obj.Position.Z, true, true,
-                            true);
+                        SetEntityCoordsNoOffset(entity, obj.Position.X, obj.Position.Y, obj.Position.Z, true, true, true);
                         SetEntityRotation(entity, obj.Rotation.X, obj.Rotation.Y, obj.Rotation.Z, 2, true);
                         SetEntityAlpha(entity, obj.Alpha, false);
                         SetEntityCollision(entity, obj.Collision, true);

@@ -8,6 +8,7 @@ using Client.Core.UI.HitMenu;
 using Client.Core.UI.Menu;
 using System;
 using System.Collections.Generic;
+using Client.Scripts;
 
 namespace Client
 {
@@ -44,6 +45,7 @@ namespace Client
             LoadScript(new NpcManager(this));
             LoadScript(new SpawnManager(this));
             LoadScript(new DoorManager(this));
+            LoadScript(new MapEditor(this));
         }
 
         #region DO NOT TOUCH THIS
