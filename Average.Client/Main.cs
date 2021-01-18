@@ -20,7 +20,7 @@ namespace Client
         public Main()
         {
             GC.SuppressFinalize(this);
-
+            
             Handlers = EventHandlers;
 
             Constant.Config = Configuration.Parse("config");

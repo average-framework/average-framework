@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Mickael\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Mickael\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_Average Framework.1022581677.00" t="ExcludeRecursive" />
+    <e p="D:\deskback-17-01-2021\Average_Community" t="IncludeFlat">
+      <e p="Average Framework.sln" t="IncludeFlat" />
+      <e p="Average.Client" t="IncludeRecursive">
+        <e p="Client.csproj" t="IncludeRecursive" />
+        <e p="Constant.cs" t="Include" />
+        <e p="Core" t="Include">
+          <e p="Controllers" t="Include">
+            <e p="PlayerController.cs" t="Include" />
+          </e>
+          <e p="Enums" t="Include">
+            <e p="ClothCategories.cs" t="Include" />
+            <e p="Control.cs" t="Include" />
+            <e p="Emotes.cs" t="Include" />
+            <e p="EntityType.cs" t="Include" />
+            <e p="FaceParts.cs" t="Include" />
+            <e p="Gender.cs" t="Include" />
+            <e p="HorseComponentsCategories.cs" t="Include" />
+            <e p="Keys.cs" t="Include" />
+            <e p="MarkerType.cs" t="Include" />
+            <e p="PostEffect.cs" t="Include" />
+            <e p="Timecycles.cs" t="Include" />
+            <e p="WalkStyles.cs" t="Include" />
+            <e p="Weapon.cs" t="Include" />
+            <e p="WeatherType.cs" t="Include" />
+          </e>
+          <e p="Extensions" t="Include">
+            <e p="FloatExtensions.cs" t="Include" />
+            <e p="ObjectExtensions.cs" t="Include" />
+            <e p="Vector3Extensions.cs" t="Include" />
+          </e>
+          <e p="Helpers" t="Include">
+            <e p="MathHelpers.cs" t="Include" />
+          </e>
+          <e p="Interfaces" t="Include">
+            <e p="IMenuItem.cs" t="Include" />
+            <e p="ITask.cs" t="Include" />
+          </e>
+          <e p="Internal" t="Include">
+            <e p="CAPI.cs" t="Include" />
+            <e p="Configuration.cs" t="Include" />
+            <e p="Lang.cs" t="Include" />
+            <e p="Log.cs" t="Include" />
+          </e>
+          <e p="Managers" t="Include">
+            <e p="BlipManager.cs" t="Include" />
+            <e p="CharacterManager.cs" t="Include" />
+            <e p="DoorManager.cs" t="Include" />
+            <e p="MapManager.cs" t="Include" />
+            <e p="NpcManager.cs" t="Include" />
+            <e p="PermissionManager.cs" t="Include" />
+            <e p="SpawnManager.cs" t="Include" />
+            <e p="TaskManager.cs" t="Include" />
+            <e p="UserManager.cs" t="Include" />
+          </e>
+          <e p="Rpc" t="Include">
+            <e p="RpcHandler.cs" t="Include" />
+            <e p="RpcRequest.cs" t="Include" />
+            <e p="RpcSerializer.cs" t="Include" />
+            <e p="RpcTrigger.cs" t="Include" />
+          </e>
+          <e p="Script.cs" t="Include" />
+          <e p="UI" t="Include">
+            <e p="HitMenu" t="Include">
+              <e p="HitMenu.cs" t="Include" />
+              <e p="HitMenuContainer.cs" t="Include" />
+              <e p="HitMenuItem.cs" t="Include" />
+            </e>
+            <e p="Hud.cs" t="Include" />
+            <e p="Menu" t="Include">
+              <e p="Menu.cs" t="Include" />
+              <e p="MenuContainer.cs" t="Include" />
+              <e p="MenuItem.cs" t="Include" />
+              <e p="MenuItemCheckbox.cs" t="Include" />
+              <e p="MenuItemList.cs" t="Include" />
+              <e p="MenuItemSlider.cs" t="Include" />
+              <e p="MenuSliderSelectorItem.cs" t="Include" />
+              <e p="MenuStatsItem.cs" t="Include" />
+              <e p="MenuTextboxItem.cs" t="Include" />
+            </e>
+            <e p="NUI.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Events.cs" t="Include" />
+        <e p="Main.cs" t="Include" />
+        <e p="Models" t="Include">
+          <e p="Clothing.cs" t="Include" />
+          <e p="Door.cs" t="Include" />
+          <e p="DoorInfo.cs" t="Include" />
+          <e p="Imap.cs" t="Include" />
+          <e p="Interior.cs" t="Include" />
+          <e p="InteriorSet.cs" t="Include" />
+          <e p="MyImap.cs" t="Include" />
+          <e p="MyInterior.cs" t="Include" />
+          <e p="Ped.cs" t="Include" />
+          <e p="PedComponent.cs" t="Include" />
+          <e p="PedOverlay.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="CharacterCreator.cs" t="Include" />
+        </e>
+        <e p="Settings.cs" t="Include" />
+      </e>
+      <e p="Average.Server" t="IncludeRecursive">
+        <e p="app.config" t="Include" />
+        <e p="Constant.cs" t="Include" />
+        <e p="Core" t="Include">
+          <e p="Controllers" t="Include" />
+          <e p="Data" t="Include">
+            <e p="MySQL.cs" t="Include" />
+          </e>
+          <e p="Interfaces" t="Include">
+            <e p="ITask.cs" t="Include" />
+          </e>
+          <e p="Internal" t="Include">
+            <e p="CAPI.cs" t="Include" />
+            <e p="Configuration.cs" t="Include" />
+            <e p="Lang.cs" t="Include" />
+            <e p="Log.cs" t="Include" />
+          </e>
+          <e p="Managers" t="Include">
+            <e p="CfxManager.cs" t="Include" />
+            <e p="CharacterManager.cs" t="Include" />
+            <e p="DoorManager.cs" t="Include" />
+            <e p="PermissionManager.cs" t="Include" />
+            <e p="TaskManager.cs" t="Include" />
+            <e p="UserManager.cs" t="Include" />
+          </e>
+          <e p="Rpc" t="Include">
+            <e p="RpcExtensions.cs" t="Include" />
+            <e p="RpcHandler.cs" t="Include" />
+            <e p="RpcRequest.cs" t="Include" />
+            <e p="RpcSerializer.cs" t="Include" />
+            <e p="RpcTrigger.cs" t="Include" />
+          </e>
+          <e p="Script.cs" t="Include" />
+        </e>
+        <e p="Events.cs" t="Include" />
+        <e p="Main.cs" t="Include" />
+        <e p="Models" t="Include">
+          <e p="Door.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Scripts" t="Include" />
+        <e p="Server.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="Average.Shared" t="IncludeRecursive">
+        <e p="Core" t="Include">
+          <e p="DataModels" t="Include">
+            <e p="CharacterData.cs" t="Include" />
+            <e p="PermissionData.cs" t="Include" />
+            <e p="UserData.cs" t="Include" />
+          </e>
+          <e p="Interfaces" t="Include">
+            <e p="IRpcHandler.cs" t="Include" />
+            <e p="IRpcSerializer.cs" t="Include" />
+            <e p="IRpcTrigger.cs" t="Include" />
+          </e>
+          <e p="Rpc" t="Include">
+            <e p="RpcMessage.cs" t="Include" />
+          </e>
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Shared.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="libs" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive">
+        <e p="MongoDB.Driver.Core.2.11.1\runtimes\win\native\libzstd.dll" t="Include" />
+        <e p="MongoDB.Driver.Core.2.11.1\runtimes\win\native\snappy32.dll" t="Include" />
+        <e p="MongoDB.Driver.Core.2.11.1\runtimes\win\native\snappy64.dll" t="Include" />
+        <e p="MongoDB.Libmongocrypt.1.0.0\x64\native\windows\mongocrypt.dll" t="Include" />
+      </e>
+    </e>
+    <e p="D:\deskback-17-01-2021\redm\resources\avg" t="ExcludeRecursive" />
+  </component>
+</project>
