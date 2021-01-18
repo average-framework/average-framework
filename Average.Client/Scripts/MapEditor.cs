@@ -75,7 +75,7 @@ namespace Client.Scripts
             task = Main.GetScript<TaskManager>();
             character = Main.GetScript<CharacterManager>();
 
-            Constant.Objects = Configuration<Models.Objects>.Parse("utils/objects");
+            Constant.Objects = Configuration<Objects>.Parse("utils/objects");
             
             Task.Factory.StartNew(async () =>
             {

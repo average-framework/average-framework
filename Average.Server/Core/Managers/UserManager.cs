@@ -4,7 +4,7 @@ using Shared.DataModels;
 using System;
 using static Server.Core.Internal.CAPI;
 
-namespace Server.Core
+namespace Server.Core.Managers
 {
     public class UserManager : Script
     {

@@ -1,12 +1,13 @@
-﻿using CitizenFX.Core;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using Client.Core.Enums;
 using Client.Core.Internal;
 using Client.Core.Managers;
 using Client.Core.UI;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using Shared.Core.DataModels;
 using static CitizenFX.Core.Native.API;
 using static Client.Core.Managers.TaskManager;
 
@@ -14,18 +15,17 @@ namespace Client.Core.Controllers
 {
     public class PlayerController : Script
     {
-        protected TaskManager task;
-        protected CharacterManager character;
-        protected PermissionManager permission;
-        protected int deathCamera = -1;
-        protected bool isDead;
-        protected bool isGod;
-        protected bool isSprinting;
-        protected bool canRegen;
-        protected bool useScenario;
-        protected CAction tUpdate3;
-        protected TimeSpan timeToWaitSpan = TimeSpan.FromMilliseconds(timeToWait);
-        protected const int timeToWait = 5000;
+        private TaskManager task;
+        private CharacterManager character;
+        private int deathCamera = -1;
+        private bool isDead;
+        private bool isSprinting;
+        private bool canRegen;
+        private bool useScenario;
+        private CAction tUpdate3;
+        private TimeSpan timeToWaitSpan = TimeSpan.FromMilliseconds(timeToWait);
+        private const int timeToWait = 5000;
+
         protected List<string> weapons = new List<string>
         {
             Weapon.WEAPON_BOW,
@@ -82,9 +82,10 @@ namespace Client.Core.Controllers
                 var ped = PlayerPedId();
                 SetEntityMaxHealth(ped, 100);
                 SetEntityHealth(ped, value, 0);
-                Function.Call((Hash)0xC6258F41D86676E0, ped, 0, value);
+                Function.Call((Hash) 0xC6258F41D86676E0, ped, 0, value);
             }
         }
+
         public int Hunger { get; set; } = 100;
         public int Thirst { get; set; } = 100;
         public int Stamina { get; set; } = 100;
@@ -96,7 +97,6 @@ namespace Client.Core.Controllers
         public PlayerController(Main main) : base(main)
         {
             task = Main.GetScript<TaskManager>();
-            permission = Main.GetScript<PermissionManager>();
             character = Main.GetScript<CharacterManager>();
 
             Hud.SetVisibility(false);
@@ -151,18 +151,14 @@ namespace Client.Core.Controllers
             {
                 isDead = true;
 
-                if (!AnimpostfxIsRunning(PostEffect.PauseMenuIn))
-                {
-                    AnimpostfxPlay(PostEffect.PauseMenuIn);
-                }
+                if (!AnimpostfxIsRunning(PostEffect.PauseMenuIn)) AnimpostfxPlay(PostEffect.PauseMenuIn);
             }
 
             if (isDead)
             {
                 if (!DoesCamExist(deathCamera))
-                {
-                    deathCamera = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", 0f, 0f, 0f, 0f, 0.0f, 0f, 40.0f, false, 0);
-                }
+                    deathCamera = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", 0f, 0f, 0f, 0f, 0.0f, 0f, 40.0f, false,
+                        0);
 
                 if (DoesCamExist(deathCamera))
                 {
@@ -197,15 +193,12 @@ namespace Client.Core.Controllers
                 }
                 else
                 {
-                    if (IsControlJustReleased(0, (uint)Keys.E))
-                    {
-                        await Revive(25, 50, 50);
-                    }
+                    if (IsControlJustReleased(0, (uint) Keys.E)) await Revive(25, 50, 50);
                 }
             }
             else
             {
-                if (IsControlJustReleased(0, (uint)Keys.N2))
+                if (IsControlJustReleased(0, (uint) Keys.N2))
                 {
                     Hud.SetVisibility(true);
                     Hud.SetContainerVisible(true);
@@ -229,16 +222,15 @@ namespace Client.Core.Controllers
         [Tick]
         private async Task Update4()
         {
-            int boneIndex = 0;
+            var boneIndex = 0;
             var ped = PlayerPedId();
 
             foreach (var weapon in weapons)
-            {
-                if (Function.Call<bool>((Hash)0xDCF06D0CDFF68424, ped, (uint)GetHashKey(weapon), 0))
-                {
+                if (Function.Call<bool>((Hash) 0xDCF06D0CDFF68424, ped, (uint) GetHashKey(weapon), 0))
                     if (GetPedLastDamageBone(ped, ref boneIndex))
                     {
-                        if (boneIndex == 33646 || boneIndex == 45454 || boneIndex == 6884 || boneIndex == 65478 || boneIndex == 56200 || boneIndex == 55120 || boneIndex == 43312)
+                        if (boneIndex == 33646 || boneIndex == 45454 || boneIndex == 6884 || boneIndex == 65478 ||
+                            boneIndex == 56200 || boneIndex == 55120 || boneIndex == 43312)
                         {
                             var rnd = new Random(Environment.TickCount).Next(5000, 10000);
                             SetPedToRagdoll(ped, rnd, rnd, 0, true, true, false);
@@ -249,7 +241,8 @@ namespace Client.Core.Controllers
                             var pos = GetEntityCoords(ped, true, true);
                             var heading = GetEntityHeading(ped);
 
-                            Function.Call(Hash.NETWORK_RESURRECT_LOCAL_PLAYER, pos.X, pos.Y, pos.Z, heading, false, false, false);
+                            Function.Call(Hash.NETWORK_RESURRECT_LOCAL_PLAYER, pos.X, pos.Y, pos.Z, heading, false,
+                                false, false);
                         }
 
                         if (boneIndex == 46065 ||
@@ -264,12 +257,9 @@ namespace Client.Core.Controllers
                             boneIndex == 34606 ||
                             boneIndex == 54802 ||
                             boneIndex == 30226)
-                        {
-                            Function.Call((Hash)0xFFD54D9FE71B966A, ped, 2, boneIndex, 0.0f, 0.1f, 0.0f, 0f, 0f, -1f, 0.01f);
-                        }
+                            Function.Call((Hash) 0xFFD54D9FE71B966A, ped, 2, boneIndex, 0.0f, 0.1f, 0.0f, 0f, 0f, -1f,
+                                0.01f);
                     }
-                }
-            }
 
             await Delay(250);
         }
@@ -278,19 +268,17 @@ namespace Client.Core.Controllers
         {
             var ped = PlayerPedId();
 
-            if (IsControlJustReleased(0, (uint)Keys.N1))
-            {
+            if (IsControlJustReleased(0, (uint) Keys.N1))
                 SetPedToRagdoll(PlayerPedId(), 10000, 10000, 0, true, true, true);
-            }
 
-            if (IsControlJustReleased(0, (uint)Keys.J))
+            if (IsControlJustReleased(0, (uint) Keys.J))
             {
                 if (!useScenario)
                 {
                     useScenario = true;
 
                     var pos = GetEntityCoords(ped, true, true);
-                    Function.Call((Hash)0x9FDA1B3D7E7028B3, ped, pos.X, pos.Y, pos.Z, 2f, 1, 1, 1, 1);
+                    Function.Call((Hash) 0x9FDA1B3D7E7028B3, ped, pos.X, pos.Y, pos.Z, 2f, 1, 1, 1, 1);
                 }
                 else
                 {
@@ -299,24 +287,17 @@ namespace Client.Core.Controllers
                 }
             }
 
-            if (IsControlJustPressed(0, (uint)Keys.L))
+            if (IsControlJustPressed(0, (uint) Keys.L))
             {
                 if (character.Data.SexType == 0)
-                {
                     CAPI.PlayClipset2("mech_loco_m@generic@reaction@handsup@unarmed@tough", "loop", 31, -1, 1.0f, 1.0f);
-                }
                 else
-                {
                     CAPI.PlayClipset2("mech_loco_f@generic@reaction@handsup@unarmed@tough", "loop", 31, -1, 1.0f, 1.0f);
-                }
             }
 
-            if (IsControlJustReleased(0, (uint)Keys.LALT))
-            {
-                isSprinting = !isSprinting;
-            }
+            if (IsControlJustReleased(0, (uint) Keys.LALT)) isSprinting = !isSprinting;
 
-            if (IsControlPressed(0, (uint)Keys.SHIFT))
+            if (IsControlPressed(0, (uint) Keys.SHIFT))
             {
                 canRegen = false;
 
@@ -369,19 +350,12 @@ namespace Client.Core.Controllers
             else
             {
                 if (Stamina <= 0)
-                {
                     Stamina = 0;
-                }
                 else
-                {
                     Stamina -= StaminaDecreaseValue;
-                }
             }
 
-            if (Stamina >= 100)
-            {
-                Stamina = 100;
-            }
+            if (Stamina >= 100) Stamina = 100;
         }
 
         #endregion
@@ -406,15 +380,9 @@ namespace Client.Core.Controllers
 
             ReviveInjuredPed(ped);
 
-            if (AnimpostfxIsRunning(PostEffect.PauseMenuIn))
-            {
-                AnimpostfxStop(PostEffect.PauseMenuIn);
-            }
+            if (AnimpostfxIsRunning(PostEffect.PauseMenuIn)) AnimpostfxStop(PostEffect.PauseMenuIn);
 
-            while (IsPedInjured(ped))
-            {
-                await Delay(100);
-            }
+            while (IsPedInjured(ped)) await Delay(100);
 
             await DeleteCamera();
             await Delay(750);
@@ -451,13 +419,9 @@ namespace Client.Core.Controllers
             if (!isDead)
             {
                 if (Hunger <= 0)
-                {
                     Hunger = 0;
-                }
                 else
-                {
                     Hunger -= HungerDecreaseValue;
-                }
 
                 Hud.SetHunger(Hunger);
             }
@@ -468,16 +432,11 @@ namespace Client.Core.Controllers
             if (!isDead)
             {
                 if (Thirst <= 0)
-                {
                     Thirst = 0;
-                }
                 else
-                {
                     Thirst -= ThirstDecreaseValue;
-                }
 
                 Hud.SetThirst(Thirst);
-
             }
         }
 
@@ -495,15 +454,9 @@ namespace Client.Core.Controllers
                 }
                 else
                 {
-                    if (Hunger <= 0)
-                    {
-                        Health -= 10;
-                    }
+                    if (Hunger <= 0) Health -= 10;
 
-                    if (Thirst <= 0)
-                    {
-                        Health -= 10;
-                    }
+                    if (Thirst <= 0) Health -= 10;
                 }
 
                 character.Data.Core.Health = Health;
@@ -519,7 +472,7 @@ namespace Client.Core.Controllers
             var ped = PlayerPedId();
             var coords = GetEntityCoords(ped, true, true);
             var heading = GetEntityHeading(ped);
-            character.Data.Position = new Shared.Core.DataModels.CharacterData.PositionData(coords.X, coords.Y, coords.Z, heading);
+            character.Data.Position = new CharacterData.PositionData(coords.X, coords.Y, coords.Z, heading);
         }
 
         public void ShowCores()
@@ -532,13 +485,9 @@ namespace Client.Core.Controllers
             Hud.SetHelpTextVisible(false);
 
             if (IsPedOnMount(ped))
-            {
                 Hud.SetHorseVisible(true);
-            }
             else
-            {
                 Hud.SetHorseVisible(false);
-            }
 
             task.Add(tUpdate3);
         }
@@ -550,10 +499,7 @@ namespace Client.Core.Controllers
         [EventHandler(Events.CFX.OnResourceStop)]
         private async void OnResourceStop(string resourceName)
         {
-            if (resourceName == Constant.ResourceName)
-            {
-                await DeleteCamera();
-            }
+            if (resourceName == Constant.ResourceName) await DeleteCamera();
         }
 
         #endregion
