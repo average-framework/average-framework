@@ -5,8 +5,8 @@ namespace Client.Core.Interfaces
 {
     public interface ITask
     {
-        public string Id { get; }
-        public bool DestroyOnFinish { get; }
-        public Func<Task> Task { get; }
+         string Id { get; } 
+         bool DestroyOnFinish { get; }
+         Func<Task> Task { get; }
     }
 }

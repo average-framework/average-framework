@@ -7,13 +7,12 @@ namespace Client.Core.Managers
 {
     public class PermissionManager : Script
     {
-        protected User user;
-
-        protected List<PermissionData> permissions = new List<PermissionData>();
+        private readonly UserManager user;
+        private readonly List<PermissionData> permissions = new List<PermissionData>();
 
         public PermissionManager(Main main) : base(main)
         {
-            user = Main.GetScript<User>();
+            user = Main.GetScript<UserManager>();
 
             Task.Factory.StartNew(async () =>
             {

@@ -7,9 +7,9 @@ namespace Server.Core
 {
     public abstract class Script : BaseScript, IDisposable
     {
-        public Main Main { get; }
+        protected Main Main { get; }
         public string Name { get; private set; }
-        public dynamic Config { get; private set; }
+        protected dynamic Config { get; private set; }
 
         public Script(Main main, string configFile = "")
         {

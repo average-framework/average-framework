@@ -20,7 +20,7 @@ namespace Client
         public Main()
         {
             GC.SuppressFinalize(this);
-
+            
             Handlers = EventHandlers;
 
             Constant.Config = Configuration.Parse("config");
@@ -34,7 +34,7 @@ namespace Client
         private void Init()
         {
             LoadScript(new TaskManager(this));
-            LoadScript(new User(this));
+            LoadScript(new UserManager(this));
             LoadScript(new Menu(this));
             LoadScript(new PermissionManager(this));
             LoadScript(new CharacterManager(this));
