@@ -1,13 +1,12 @@
 ﻿using CitizenFX.Core;
 using Server.Core.Internal;
-using System;
 using static Server.Core.Internal.CAPI;
 
 namespace Server.Core.Managers
 {
     public class CfxManager : Script
     {
-        protected UserManager user;
+        private UserManager user;
 
         public CfxManager(Main main) : base(main) => user = Main.GetScript<UserManager>();
 

@@ -4,11 +4,11 @@ using Shared.DataModels;
 using System;
 using static Server.Core.Internal.CAPI;
 
-namespace Server.Core
+namespace Server.Core.Managers
 {
     public class UserManager : Script
     {
-        public UserManager(Main main) : base(main, "user")
+        public UserManager(Main main) : base(main, "user_manager")
         {
             Event(Events.User.OnGetUserData).On((message, callback) => callback(Get(Players[message.Target])));
         }

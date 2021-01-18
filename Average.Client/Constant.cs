@@ -333,6 +333,7 @@ namespace Client
         public static List<Models.InteriorSet> InteriorsSet { get; set; }
         public static List<Models.MyInterior> MyInteriors { get; set; }
         public static Models.Clothing Clothes { get; set; }
+        public static Models.Objects Objects { get; set; }
 
         #endregion
     }

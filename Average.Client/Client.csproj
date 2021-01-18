@@ -118,9 +118,12 @@
     <Compile Include="Models\Door.cs" />
     <Compile Include="Models\Imap.cs" />
     <Compile Include="Models\DoorInfo.cs" />
+    <Compile Include="Models\MapObject.cs" />
+    <Compile Include="Models\MapScene.cs" />
     <Compile Include="Models\MyInterior.cs" />
     <Compile Include="Models\InteriorSet.cs" />
     <Compile Include="Models\Interior.cs" />
+    <Compile Include="Models\Objects.cs" />
     <Compile Include="Models\PedOverlay.cs" />
     <Compile Include="Models\Ped.cs" />
     <Compile Include="Models\MyImap.cs" />
@@ -148,6 +151,7 @@
     <Compile Include="Core\UI\Menu\Menu.cs" />
     <Compile Include="Core\UI\NUI.cs" />
     <Compile Include="Core\Managers\SpawnManager.cs" />
+    <Compile Include="Scripts\MapEditor.cs" />
     <Compile Include="Settings.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -94,8 +94,11 @@
           <e p="Imap.cs" t="Include" />
           <e p="Interior.cs" t="Include" />
           <e p="InteriorSet.cs" t="Include" />
+          <e p="MapObject.cs" t="Include" />
+          <e p="MapScene.cs" t="Include" />
           <e p="MyImap.cs" t="Include" />
           <e p="MyInterior.cs" t="Include" />
+          <e p="Objects.cs" t="Include" />
           <e p="Ped.cs" t="Include" />
           <e p="PedComponent.cs" t="Include" />
           <e p="PedOverlay.cs" t="Include" />
@@ -107,6 +110,7 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="CharacterCreator.cs" t="Include" />
+          <e p="MapEditor.cs" t="Include" />
         </e>
         <e p="Settings.cs" t="Include" />
       </e>
@@ -148,13 +152,16 @@
         <e p="Main.cs" t="Include" />
         <e p="Models" t="Include">
           <e p="Door.cs" t="Include" />
+          <e p="MapObject.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive" />
         <e p="packages.config" t="Include" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
-        <e p="Scripts" t="Include" />
+        <e p="Scripts" t="Include">
+          <e p="MapEditor.cs" t="Include" />
+        </e>
         <e p="Server.csproj" t="IncludeRecursive" />
       </e>
       <e p="Average.Shared" t="IncludeRecursive">

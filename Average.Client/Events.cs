@@ -86,5 +86,12 @@
             public const string OnCloseMenu = "hitmenu/close";
             public const string OnKeyUp = "hitmenu/OnKeyUp";
         }
+        
+        public class MapEditor
+        {
+            public const string OnGetAllScenesName = "MapEditor.OnGetAllScenesName";
+            public const string OnSaveScene = "MapEditor.OnSaveScene";
+            public const string OnDeleteScene = "MapEditor.OnDeleteScene";
+        }
     }
 }
