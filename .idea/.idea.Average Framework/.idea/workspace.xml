@@ -11,22 +11,28 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Average.Client/Models/InteriorSet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Models/MyInterior.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Models/Clothing.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Server/Core/Managers/TaskManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Scripts/CharacterCreator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Events.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Average.Client/Models/Objects.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Main.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Server/Core/Interfaces/ITask.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Server/Models/Door.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Server/Events.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Constant.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Server/Main.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Models/Objects.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Server/Scripts/MapEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Server/Models/MapObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Core/Managers/PermissionManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Core/Managers/TaskManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Server/Core/Script.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Core/Interfaces/ITask.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Scripts/MapEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Models/MapScene.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Models/MapObject.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -37,6 +43,14 @@
         <option value="$PROJECT_DIR$/Average.Client/Core/Managers/PermissionManager.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Core/Interfaces/ITask.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Models/Objects.cs" />
+        <option value="$PROJECT_DIR$/Average.Server/Models/MapObject.cs" />
+        <option value="$PROJECT_DIR$/Average.Server/Events.cs" />
+        <option value="$PROJECT_DIR$/Average.Server/Scripts/MapEditor.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Events.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Models/MapObject.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Models/MapScene.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Constant.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Scripts/MapEditor.cs" />
       </list>
     </option>
   </component>

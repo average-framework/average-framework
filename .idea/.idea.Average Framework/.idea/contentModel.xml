@@ -94,6 +94,8 @@
           <e p="Imap.cs" t="Include" />
           <e p="Interior.cs" t="Include" />
           <e p="InteriorSet.cs" t="Include" />
+          <e p="MapObject.cs" t="Include" />
+          <e p="MapScene.cs" t="Include" />
           <e p="MyImap.cs" t="Include" />
           <e p="MyInterior.cs" t="Include" />
           <e p="Objects.cs" t="Include" />
@@ -108,6 +110,7 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="CharacterCreator.cs" t="Include" />
+          <e p="MapEditor.cs" t="Include" />
         </e>
         <e p="Settings.cs" t="Include" />
       </e>
