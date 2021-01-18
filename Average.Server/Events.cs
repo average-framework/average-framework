@@ -39,5 +39,12 @@
             public const string SetDefaultDoorState = "Door.OnSetDefaultDoorState";
             public const string GetDoors = "Door.OnGetDoors";
         }
+        
+        public class MapEditor
+        {
+            public const string OnGetAllScenesName = "MapEditor.OnGetAllScenesName";
+            public const string OnSaveScene = "MapEditor.OnSaveScene";
+            public const string OnDeleteScene = "MapEditor.OnDeleteScene";
+        }
     }
 }

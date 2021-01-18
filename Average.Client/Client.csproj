@@ -121,6 +121,7 @@
     <Compile Include="Models\MyInterior.cs" />
     <Compile Include="Models\InteriorSet.cs" />
     <Compile Include="Models\Interior.cs" />
+    <Compile Include="Models\Objects.cs" />
     <Compile Include="Models\PedOverlay.cs" />
     <Compile Include="Models\Ped.cs" />
     <Compile Include="Models\MyImap.cs" />

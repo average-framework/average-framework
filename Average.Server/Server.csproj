@@ -85,12 +85,14 @@
     <Compile Include="Events.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Models\Door.cs" />
+    <Compile Include="Models\MapObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\Managers\CfxManager.cs" />
     <Compile Include="Core\Managers\PermissionManager.cs" />
     <Compile Include="Core\Managers\UserManager.cs" />
     <Compile Include="Core\Managers\CharacterManager.cs" />
     <Compile Include="Core\Managers\DoorManager.cs" />
+    <Compile Include="Scripts\MapEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
