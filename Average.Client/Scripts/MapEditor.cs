@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Threading.Tasks;
 using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using Client.Core;
+using Client.Core.Controllers;
 using Client.Core.Enums;
 using Client.Core.Extensions;
 using Client.Core.Internal;
@@ -74,9 +76,10 @@ namespace Client.Scripts
         {
             task = Main.GetScript<TaskManager>();
             character = Main.GetScript<CharacterManager>();
+            menu = Main.GetScript<Menu>();
 
             Constant.Objects = Configuration<Objects>.Parse("utils/objects");
-            
+
             Task.Factory.StartNew(async () =>
             {
                 await character.IsReady();
@@ -154,8 +157,8 @@ namespace Client.Scripts
                 {
                     var objPosition = GetEntityCoords(currentObjEntity, true, true);
 
-                    coordsItem.Text = "Coordonnées: " + objPosition;
-                    rotationItem.Text = "Rotation: " + currentObjRotation;
+                    coordsItem.Text = $"{Lang.Current["Client.MapEditor.Coords"]}: " + objPosition;
+                    rotationItem.Text = $"{Lang.Current["Client.MapEditor.Rotate"]}: " + currentObjRotation;
                     hashItem.Text = "Hash: " + currentObjModel;
                 }
             });
@@ -165,23 +168,6 @@ namespace Client.Scripts
                 if (scenes.Exists(x => x.Name == currentSceneName))
                     SaveScene(scenes.Find(x => x.Name == currentSceneName));
             });
-        }
-
-        [EventHandler(Events.CFX.OnResourceStop)]
-        private void OnResourceStop(string resourceName)
-        {
-            if (resourceName == "avg")
-            {
-                if (DoesEntityExist(currentObjEntity)) DeleteEntity(ref currentObjEntity);
-
-                foreach (var scene in scenes)
-                foreach (var obj in scene.Objects)
-                    if (DoesEntityExist(obj.Entity))
-                    {
-                        var ent = obj.Entity;
-                        DeleteEntity(ref ent);
-                    }
-            }
         }
 
         private void UpdateScenesObjects()
@@ -205,7 +191,6 @@ namespace Client.Scripts
 
         private void InitMenus()
         {
-            menu = Main.GetScript<Menu>();
             mainMenu = new MenuContainer("MAP EDITOR");
 
             menu.CreateSubMenu(mainMenu);
@@ -255,13 +240,13 @@ namespace Client.Scripts
 
         private void InitSceneMenu()
         {
-            sceneMenu = new MenuContainer("SCENES");
+            sceneMenu = new MenuContainer(Lang.Current["Client.MapEditor.Scenes"].ToUpper());
             menu.CreateSubMenu(sceneMenu);
 
-            currentSceneItem = new MenuItem("Scène actuelle: " + currentSceneName, environmentMenu, false);
+            currentSceneItem = new MenuItem(Lang.Current["Client.MapEditor.CurrentScene"] + currentSceneName, environmentMenu, false);
             sceneMenu.AddItem(currentSceneItem);
 
-            var sceneItem = new MenuItem("Scene", sceneMenu);
+            var sceneItem = new MenuItem(Lang.Current["Client.MapEditor.Scene"], sceneMenu);
             mainMenu.AddItem(sceneItem);
 
             InitCreateSceneMenu();
@@ -270,10 +255,10 @@ namespace Client.Scripts
 
         private void InitAllScenesMenu()
         {
-            myScenesMenu = new MenuContainer("MES SCENES");
+            myScenesMenu = new MenuContainer(Lang.Current["Client.MapEditor.MyScenes"].ToUpper());
             menu.CreateSubMenu(myScenesMenu);
 
-            var mySceneItem = new MenuItem("Mes scènes", myScenesMenu, () =>
+            var mySceneItem = new MenuItem(Lang.Current["Client.MapEditor.MyScenes"], myScenesMenu, () =>
             {
                 myScenesMenu.Items.Clear();
 
@@ -287,14 +272,14 @@ namespace Client.Scripts
 
                     MapObject currentEntity = null;
 
-                    var settingsMenu = new MenuContainer("PARAMETRES");
+                    var settingsMenu = new MenuContainer(Lang.Current["Client.MapEditor.Settings"].ToUpper());
 
                     menu.CreateSubMenu(settingsMenu);
 
-                    var teleport = new MenuItemCheckbox("Ce teleporter automatiquement", false, value => { });
+                    var teleport = new MenuItemCheckbox(Lang.Current["Client.MapEditor.Teleport"], false, value => { });
 
                     MenuSliderSelectorItem<int> objectSelector = null;
-                    objectSelector = new MenuSliderSelectorItem<int>("Objet", 0,
+                    objectSelector = new MenuSliderSelectorItem<int>(Lang.Current["Client.MapEditor.Object"], 0,
                         scene.Objects.Count - 1 <= 0 ? 0 : scene.Objects.Count - 1, 0, 1, index =>
                         {
                             // Temporary (prevent negative index problem)
@@ -321,22 +306,22 @@ namespace Client.Scripts
                                     if (obj.Entity != currentEntity.Entity)
                                         SetEntityAlpha(obj.Entity, 255, false);
 
-                                objectSelector.Text = "Objet: " + currentEntity.Model;
+                                objectSelector.Text = $"{Lang.Current["Client.MapEditor.Object"]}: " + currentEntity.Model;
                             }
                         });
 
-                    var editing = new MenuItem("Modifier", () =>
+                    var editing = new MenuItem(Lang.Current["Client.MapEditor.Modify"], () =>
                     {
                         currentSceneName = scene.Name;
-                        currentSceneItem.Text = "Scène actuelle: " + currentSceneName;
+                        currentSceneItem.Text = Lang.Current["Client.MapEditor.CurrentScene"] + currentSceneName;
                         currentSceneItem.Visible = true;
 
                         menu.OpenMenu(environmentMenu);
                     });
 
-                    var save = new MenuItem("Sauvegarder", () => { SaveScene(scene); });
+                    var save = new MenuItem(Lang.Current["Client.MapEditor.Save"], () => { SaveScene(scene); });
 
-                    var deleteScene = new MenuItem("Supprimer la scène", () =>
+                    var deleteScene = new MenuItem(Lang.Current["Client.MapEditor.DeleteScene"], () =>
                     {
                         foreach (var obj in scene.Objects)
                             if (DoesEntityExist(obj.Entity))
@@ -359,7 +344,7 @@ namespace Client.Scripts
                         TriggerServerEvent(Events.MapEditor.OnDeleteScene, scene.Name);
                     });
 
-                    var deleteObject = new MenuItem("Supprimer l'objet", () =>
+                    var deleteObject = new MenuItem(Lang.Current["Client.MapEditor.DeleteObject"], () =>
                     {
                         if (currentEntity.Entity != -1)
                             if (DoesEntityExist(currentEntity.Entity))
@@ -373,7 +358,7 @@ namespace Client.Scripts
 
                                 if (scene.Objects.Count == 1)
                                     currentEntity = scene.Objects[0];
-                                else if (scene.Objects.Count == 0) objectSelector.Text = "Aucun objet";
+                                else if (scene.Objects.Count == 0) objectSelector.Text = Lang.Current["Client.MapEditor.NoObject"];
 
                                 objectSelector.Value = 0;
 
@@ -414,16 +399,16 @@ namespace Client.Scripts
 
         private void InitCreateSceneMenu()
         {
-            var createSceneMenu = new MenuContainer("CREER UNE SCENE");
+            var createSceneMenu = new MenuContainer(Lang.Current["Client.MapEditor.CreateScene"].ToUpper());
             menu.CreateSubMenu(createSceneMenu);
 
-            var createSceneItem = new MenuItem("Créer une scène", createSceneMenu);
+            var createSceneItem = new MenuItem(Lang.Current["Client.MapEditor.CreateScene"], createSceneMenu);
             sceneMenu.AddItem(createSceneItem);
 
-            var sceneNameItem = new MenuTextboxItem("Nom de la scène: ", string.Empty, "Test", "", 1, 20,
+            var sceneNameItem = new MenuTextboxItem(Lang.Current["Client.MapEditor.SceneName"], string.Empty, "Test", "", 1, 20,
                 value => { currentSceneName = value.ToString(); });
 
-            var createItem = new MenuItem("Créer", () =>
+            var createItem = new MenuItem(Lang.Current["Client.MapEditor.Create"], () =>
             {
                 if (!string.IsNullOrEmpty(currentSceneName))
                 {
@@ -432,7 +417,7 @@ namespace Client.Scripts
                         scenes.Add(new MapScene(currentSceneName, new MenuContainer(currentSceneName.ToUpper()),
                             new List<MapObject>()));
 
-                        currentSceneItem.Text = "Scène actuelle: " + currentSceneName;
+                        currentSceneItem.Text = Lang.Current["Client.MapEditor.CurrentScene"] + currentSceneName;
                         currentSceneItem.Visible = true;
 
                         menu.CanCloseMenu = false;
@@ -453,20 +438,20 @@ namespace Client.Scripts
 
             var categories = new List<MenuItemList.KeyValue<object>>
             {
-                new MenuItemList.KeyValue<object>("Extérieur", Constant.Objects.Generic),
-                new MenuItemList.KeyValue<object>("Structure", Constant.Objects.Structure),
-                new MenuItemList.KeyValue<object>("Partie batiment", Constant.Objects.Interior),
-                new MenuItemList.KeyValue<object>("Mobilier urbain", Constant.Objects.Area),
-                new MenuItemList.KeyValue<object>("VFX", Constant.Objects.VFX),
-                new MenuItemList.KeyValue<object>("Vegetation", Constant.Objects.Vegetation),
-                new MenuItemList.KeyValue<object>("Divers", Constant.Objects.LevDes),
-                new MenuItemList.KeyValue<object>("Modèles", Constant.Objects.WeaponModels),
-                new MenuItemList.KeyValue<object>("Transport", Constant.Objects.Transport),
-                new MenuItemList.KeyValue<object>("Props véhicule", Constant.Objects.VehicleProps),
-                new MenuItemList.KeyValue<object>("Roues véhicule", Constant.Objects.VehicleWheels),
-                new MenuItemList.KeyValue<object>("Inconnu", Constant.Objects.Unknow)
+                new MenuItemList.KeyValue<object>(Lang.Current["Client.MapEditor.Generic"], Constant.Objects.Generic),
+                new MenuItemList.KeyValue<object>(Lang.Current["Client.MapEditor.Structure"], Constant.Objects.Structure),
+                new MenuItemList.KeyValue<object>(Lang.Current["Client.MapEditor.Interior"], Constant.Objects.Interior),
+                new MenuItemList.KeyValue<object>(Lang.Current["Client.MapEditor.Area"], Constant.Objects.Area),
+                new MenuItemList.KeyValue<object>(Lang.Current["Client.MapEditor.VFX"], Constant.Objects.VFX),
+                new MenuItemList.KeyValue<object>(Lang.Current["Client.MapEditor.Vegetation"], Constant.Objects.Vegetation),
+                new MenuItemList.KeyValue<object>(Lang.Current["Client.MapEditor.Various"], Constant.Objects.LevDes),
+                new MenuItemList.KeyValue<object>(Lang.Current["Client.MapEditor.WeaponModels"], Constant.Objects.WeaponModels),
+                new MenuItemList.KeyValue<object>(Lang.Current["Client.MapEditor.Transport"], Constant.Objects.Transport),
+                new MenuItemList.KeyValue<object>(Lang.Current["Client.MapEditor.VehicleProps"], Constant.Objects.VehicleProps),
+                new MenuItemList.KeyValue<object>(Lang.Current["Client.MapEditor.VehicleWheels"], Constant.Objects.VehicleWheels),
+                new MenuItemList.KeyValue<object>(Lang.Current["Client.MapEditor.Unknow"], Constant.Objects.Unknow)
             };
-
+            
             var allObjects = new List<string>();
             allObjects.AddRange(Constant.Objects.Urban);
             allObjects.AddRange(Constant.Objects.Layout);
@@ -486,7 +471,7 @@ namespace Client.Scripts
             var currentArrayName = categories[0].Key;
             var currentArray = Constant.Objects.Generic;
 
-            var categoryItem = new MenuItemList("Categorie: ", 0, categories,
+            var categoryItem = new MenuItemList(Lang.Current["Client.MapEditor.Category"], 0, categories,
                 (index, value) =>
                 {
                     currentObjType = index;
@@ -509,7 +494,7 @@ namespace Client.Scripts
                     zOffsetItem.Value = 0f;
                 });
 
-            var searchItem = new MenuTextboxItem("Rechercher", "", "Nom de l'objet", "", 0, 100, value =>
+            var searchItem = new MenuTextboxItem(Lang.Current["Client.MapEditor.Search"], "", Lang.Current["Client.MapEditor.ObjectName"], "", 0, 100, value =>
             {
                 var objects = allObjects.Where(x =>
                     x.Contains(value.ToString()) && (x.StartsWith("p_") || x.StartsWith("s_") || x.StartsWith("w_") ||
@@ -528,7 +513,7 @@ namespace Client.Scripts
                 {
                     selectorItem.Value = 0;
                     selectorItem.MaxValue = 0;
-                    selectorItem.Text = "Aucun objet trouver";
+                    selectorItem.Text = Lang.Current["Client.MapEditor.NoObjectFinded"];
                 }
             });
 
@@ -566,7 +551,7 @@ namespace Client.Scripts
                     zOffsetItem.Value = 0f;
                 });
 
-            visibleItem = new MenuItemCheckbox("Visible", true, value =>
+            visibleItem = new MenuItemCheckbox(Lang.Current["Client.MapEditor.Visible"], true, value =>
             {
                 if (currentObjEntity != -1)
                 {
@@ -575,7 +560,7 @@ namespace Client.Scripts
                 }
             });
 
-            gravityItem = new MenuItemCheckbox("Gravité", false, value =>
+            gravityItem = new MenuItemCheckbox(Lang.Current["Client.MapEditor.Gravity"], false, value =>
             {
                 if (currentObjEntity != -1)
                 {
@@ -584,28 +569,28 @@ namespace Client.Scripts
                 }
             });
 
-            collisionItem = new MenuItemCheckbox("Collision", true, value =>
+            collisionItem = new MenuItemCheckbox(Lang.Current["Client.MapEditor.Collision"], true, value =>
             {
                 if (currentObjEntity != -1) SetEntityCollision(currentObjEntity, value, true);
             });
 
-            superpositionItem = new MenuItemCheckbox("Superposition", true, value => { });
+            superpositionItem = new MenuItemCheckbox(Lang.Current["Client.MapEditor.Layering"], true, value => { });
 
-            onGroundItem = new MenuItemCheckbox("Aligner sur la surface", true, value => { });
+            onGroundItem = new MenuItemCheckbox(Lang.Current["Client.MapEditor.AlignToSurface"], true, value => { });
 
-            drawAxesItem = new MenuItemCheckbox("Afficher les axes", true, value => { });
-            drawBoxItem = new MenuItemCheckbox("Afficher la box", true, value => { });
-            lockObjItem = new MenuItemCheckbox("Vérrouiller", false, value => { });
+            drawAxesItem = new MenuItemCheckbox(Lang.Current["Client.MapEditor.ShowAxes"], true, value => { });
+            drawBoxItem = new MenuItemCheckbox(Lang.Current["Client.MapEditor.ShowBox"], true, value => { });
+            lockObjItem = new MenuItemCheckbox(Lang.Current["Client.MapEditor.Lock"], false, value => { });
 
-            interpolationItem = new MenuItemList("Type d'interpolation", 0, new List<MenuItemList.KeyValue<object>>
+            interpolationItem = new MenuItemList(Lang.Current["Client.MapEditor.InterpolationType"], 0, new List<MenuItemList.KeyValue<object>>
                 {
                     new MenuItemList.KeyValue<object>("Map", 1),
-                    new MenuItemList.KeyValue<object>("Objets", 16),
-                    new MenuItemList.KeyValue<object>("Eau", 32)
+                    new MenuItemList.KeyValue<object>("Object", 16),
+                    new MenuItemList.KeyValue<object>("Water", 32)
                 },
                 (index, value) => { });
 
-            alphaItem = new MenuSliderSelectorItem<int>("Opacité", 0, 254, 254, 1, value =>
+            alphaItem = new MenuSliderSelectorItem<int>($"{Lang.Current["Client.MapEditor.Opacity"]}: ", 0, 254, 254, 1, value =>
             {
                 if (currentObjEntity != -1)
                     SetEntityAlpha(currentObjEntity, value, false);
@@ -632,8 +617,8 @@ namespace Client.Scripts
             zOffsetItem = new MenuSliderSelectorItem<float>("Offset Z", minOffset, maxOffset, 0f, 0.01f,
                 value => { zOffsetItem.Text = $"Offset Z: {value}"; });
 
-            coordsItem = new MenuItem("Coordonnées");
-            rotationItem = new MenuItem("Rotation");
+            coordsItem = new MenuItem(Lang.Current["Client.MapEditor.Coords"]);
+            rotationItem = new MenuItem(Lang.Current["Client.MapEditor.Rotate"]);
             hashItem = new MenuItem("Hash");
 
             environmentMenu.AddItem(categoryItem);
@@ -658,38 +643,38 @@ namespace Client.Scripts
             environmentMenu.AddItem(hashItem);
 
             selectorItem.Text = $"{currentArrayName}: [{selectorItem.Value}/{currentArray.Count - 1}]";
-            alphaItem.Text = $"Opacité: {(int) ((float) alphaItem.Value / (float) alphaItem.MaxValue * 100f)}%";
+            alphaItem.Text = $"{Lang.Current["Client.MapEditor.Opacity"]}: {(int) ((float) alphaItem.Value / (float) alphaItem.MaxValue * 100f)}%";
         }
 
         private void InitSettingsMenu()
         {
-            settingsMenu = new MenuContainer("PARAMETRES");
+            settingsMenu = new MenuContainer(Lang.Current["Client.MapEditor.Settings"].ToUpper());
             menu.CreateSubMenu(settingsMenu);
 
-            var settingsItem = new MenuItem("Paramètres", settingsMenu);
+            var settingsItem = new MenuItem(Lang.Current["Client.MapEditor.Settings"], settingsMenu);
             mainMenu.AddItem(settingsItem);
 
             MenuSliderSelectorItem<float> speedItem = null;
-            speedItem = new MenuSliderSelectorItem<float>("Vitesse de déplacement: ", 0.1f, 10f, 1f, 0.1f, value =>
+            speedItem = new MenuSliderSelectorItem<float>(Lang.Current["Client.MapEditor.MoveSpeed"], 0.1f, 10f, 1f, 0.1f, value =>
             {
                 noclipSpeed = value;
 
-                speedItem.Text = "Vitesse de déplacement: " + value.ToString("0.0");
+                speedItem.Text =Lang.Current["Client.MapEditor.MoveSpeed"] + value.ToString("0.0");
             });
 
             MenuSliderSelectorItem<float> rotationSpeedItem = null;
-            rotationSpeedItem = new MenuSliderSelectorItem<float>("Vitesse de rotation: ", 1f, 10f, 1f, 0.1f, value =>
+            rotationSpeedItem = new MenuSliderSelectorItem<float>(Lang.Current["Client.MapEditor.RotateSpeed"], 1f, 10f, 1f, 0.1f, value =>
             {
                 rotationSpeed = rotationSpeedItem.Value;
 
-                rotationSpeedItem.Text = "Vitesse de rotation: " + value;
+                rotationSpeedItem.Text = Lang.Current["Client.MapEditor.RotateSpeed"] + value;
             });
 
             settingsMenu.AddItem(speedItem);
             settingsMenu.AddItem(rotationSpeedItem);
 
-            speedItem.Text = "Vitesse de déplacement: " + speedItem.Value;
-            rotationSpeedItem.Text = "Vitesse de rotation: " + rotationSpeedItem.Value;
+            speedItem.Text = Lang.Current["Client.MapEditor.MoveSpeed"] + speedItem.Value;
+            rotationSpeedItem.Text = Lang.Current["Client.MapEditor.RotateSpeed"] + rotationSpeedItem.Value;
         }
 
         #endregion
@@ -949,8 +934,6 @@ namespace Client.Scripts
         [Command("editor.edit")]
         private async void MapEditorCommand(int source, List<object> args, string raw)
         {
-            //await character.IsReady();
-
             if (args.Count == 1)
             {
                 var cmd = args[0].ToString();
@@ -960,6 +943,9 @@ namespace Client.Scripts
                     case "open":
                         menu.CanCloseMenu = false;
                         menu.OpenMenu(mainMenu);
+
+                        Main.GetScript<PlayerController>().CoreSystemEnabled = false;
+                        Main.GetScript<PlayerController>().FullCore();
 
                         ToggleNoclip(true);
 
@@ -971,12 +957,15 @@ namespace Client.Scripts
 
                         IsOpen = true;
 
-                        Warn("Ouverture du map editor");
+                        Warn(Lang.Current["Client.MapEditor.Open"]);
                         break;
                     case "close":
                         menu.CanCloseMenu = true;
                         menu.CloseMenu();
 
+                        Main.GetScript<PlayerController>().CoreSystemEnabled = true;
+                        Main.GetScript<PlayerController>().FullCore();                        
+                        
                         NUI.Focus(false, false);
 
                         ToggleNoclip(false);
@@ -991,14 +980,35 @@ namespace Client.Scripts
                             if (DoesEntityExist(currentObjEntity))
                                 DeleteEntity(ref currentObjEntity);
 
-                        Warn("Fermeture du map editor");
+                        Warn(Lang.Current["Client.MapEditor.Close"]);
                         break;
                     case "help":
-                        Warn("Commandes disponible: ");
+                        Warn(Lang.Current["Client.MapEditor.AvailableCommands"]);
                         WriteLog("- open");
                         WriteLog("- close");
                         break;
                 }
+            }
+        }
+
+        #endregion
+
+        #region Events
+
+        [EventHandler(Events.CFX.OnResourceStop)]
+        private void OnResourceStop(string resourceName)
+        {
+            if (resourceName == Constant.ResourceName)
+            {
+                if (DoesEntityExist(currentObjEntity)) DeleteEntity(ref currentObjEntity);
+
+                foreach (var scene in scenes)
+                foreach (var obj in scene.Objects)
+                    if (DoesEntityExist(obj.Entity))
+                    {
+                        var ent = obj.Entity;
+                        DeleteEntity(ref ent);
+                    }
             }
         }
 

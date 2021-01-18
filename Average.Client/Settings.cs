@@ -12,6 +12,8 @@ namespace Client
 #else
             NUI.EnableConsole(false);
 #endif
+            
+            NUI.Focus(false, false);
 
             // Delete info in right corner in tab menu
             CAPI.SetHudPreset("HUD_CTX_IN_MINIGAME_POKER_OUTRO");

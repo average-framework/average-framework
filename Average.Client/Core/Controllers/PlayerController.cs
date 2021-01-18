@@ -362,6 +362,19 @@ namespace Client.Core.Controllers
 
         #region Methods
 
+        public void FullCore()
+        {
+            Health = 100;
+            Hunger = 100;
+            Thirst = 100;
+            
+            ShowCores();
+
+            Hud.SetHealth(Health);
+            Hud.SetHunger(Hunger);
+            Hud.SetThirst(Thirst);
+        }
+        
         public async Task Revive(int health = 100, int hunger = 100, int thirst = 100)
         {
             isDead = false;
