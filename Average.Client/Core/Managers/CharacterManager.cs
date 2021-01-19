@@ -78,7 +78,7 @@ namespace Client.Core.Managers
 
                     while (!IsComponentsReady)
                     {
-                        await Delay(500);
+                        await Delay(100);
                     }
                 }
             }
@@ -154,14 +154,11 @@ namespace Client.Core.Managers
             {
                 if (cloth.Value != 0)
                 {
-                    SetPedComponentEnabled(cloth.Value, false);
+                    SetPedComponentEnabled(cloth.Value);
                     UpdatePedVariation();
-
-                    await Delay(500);
+                    await Delay(100);
                 }
             }
-
-            await Delay(1000);
         }
 
         public void SetPedBodyComponents()
@@ -334,25 +331,11 @@ namespace Client.Core.Managers
                 var p1 = args[0];
                 var p2 = args[1];
 
-                if (p1.All(char.IsNumber) && p2.All(char.IsNumber))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return p1.All(char.IsNumber) && p2.All(char.IsNumber);
             }
             else
             {
-                if (value.All(char.IsNumber))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return value.All(char.IsNumber);
             }
         }
 

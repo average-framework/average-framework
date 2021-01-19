@@ -188,12 +188,7 @@
         <e p="Shared.csproj" t="IncludeRecursive" />
       </e>
       <e p="libs" t="ExcludeRecursive" />
-      <e p="packages" t="ExcludeRecursive">
-        <e p="MongoDB.Driver.Core.2.11.1\runtimes\win\native\libzstd.dll" t="Include" />
-        <e p="MongoDB.Driver.Core.2.11.1\runtimes\win\native\snappy32.dll" t="Include" />
-        <e p="MongoDB.Driver.Core.2.11.1\runtimes\win\native\snappy64.dll" t="Include" />
-        <e p="MongoDB.Libmongocrypt.1.0.0\x64\native\windows\mongocrypt.dll" t="Include" />
-      </e>
+      <e p="packages" t="ExcludeRecursive" />
     </e>
     <e p="D:\deskback-17-01-2021\redm\resources\avg" t="ExcludeRecursive" />
   </component>

@@ -802,7 +802,7 @@ namespace Client.Scripts
 
         private void PickupObject()
         {
-            var raycast = CAPI.RaycastGameplayCamera(60f, 16);
+            var raycast = CAPI.RaycastGameplayCamera(6f, 16);
             var hit = (bool) raycast[0];
 
             if (hit)

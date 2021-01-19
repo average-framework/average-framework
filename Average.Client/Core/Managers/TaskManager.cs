@@ -30,7 +30,7 @@ namespace Client.Core.Managers
 
         public TaskManager(Main main) : base(main) { }
 
-        protected Dictionary<string, CAction> actions = new Dictionary<string, CAction>();
+        private Dictionary<string, CAction> actions = new Dictionary<string, CAction>();
 
         public ITask GetActionById(string id) => actions[id];
         public bool ActionExists(string id) => actions.ContainsKey(id);

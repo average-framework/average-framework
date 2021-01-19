@@ -33,10 +33,7 @@ namespace Server.Core.Data
 
         public static T Select<T>(string cmd)
         {
-            if (!IsOpen)
-            {
-                return (T)Activator.CreateInstance(typeof(T));
-            }
+            if (!IsOpen) return (T)Activator.CreateInstance(typeof(T));
 
             var command = connection.CreateCommand();
             command.CommandText = cmd;
@@ -48,10 +45,7 @@ namespace Server.Core.Data
 
         public static List<T> SelectMultiples<T>(string cmd)
         {
-            if (!IsOpen)
-            {
-                return new List<T>();
-            }
+            if (!IsOpen) return new List<T>();
 
             var command = connection.CreateCommand();
             command.CommandText = cmd;
@@ -62,10 +56,7 @@ namespace Server.Core.Data
 
         public static bool Exists(string cmd)
         {
-            if (!IsOpen)
-            {
-                return false;
-            }
+            if (!IsOpen) return false;
 
             var command = connection.CreateCommand();
             command.CommandText = cmd;
@@ -74,26 +65,19 @@ namespace Server.Core.Data
 
         public static void Insert(string table, object value)
         {
-            if (!IsOpen)
-            {
-                return;
-            }
+            if (!IsOpen) return;
 
             var dict = MapSerialize(value);
             var command = connection.CreateCommand();
 
-            for (int i = 0; i < dict.Count; i++)
+            for (var i = 0; i < dict.Count; i++)
             {
                 var v = dict.ElementAt(i);
 
                 if (v.Value.GetType() == typeof(double) || v.Value.GetType() == typeof(float) || v.Value.GetType() == typeof(decimal) || v.Value.GetType() == typeof(int))
-                {
                     dict[v.Key] = $"{v.Value}";
-                }
                 else
-                {
                     dict[v.Key] = $"'{v.Value}'";
-                }
             }
 
             var argsKey = string.Join(",", dict.Keys);
@@ -106,15 +90,12 @@ namespace Server.Core.Data
 
         public static void InsertOrUpdate(string table, object value)
         {
-            if (!IsOpen)
-            {
-                return;
-            }
+            if (!IsOpen) return;
 
             var dict = MapSerialize(value);
             var tempDict = new Dictionary<string, object>();
 
-            for (int i = 0; i < dict.Count; i++)
+            for (var i = 0; i < dict.Count; i++)
             {
                 var v = dict.ElementAt(i);
 
@@ -142,25 +123,18 @@ namespace Server.Core.Data
 
         public static void Update(string table, string where, object value)
         {
-            if (!IsOpen)
-            {
-                return;
-            }
+            if (!IsOpen) return;
 
             var dict = MapSerialize(value);
 
-            for (int i = 0; i < dict.Count; i++)
+            for (var i = 0; i < dict.Count; i++)
             {
                 var v = dict.ElementAt(i);
 
                 if (v.Value.GetType() == typeof(double) || v.Value.GetType() == typeof(float) || v.Value.GetType() == typeof(decimal) || v.Value.GetType() == typeof(int))
-                {
                     dict[v.Key] = $"{v.Key}={v.Value.ToString().Replace(",", ".")}";
-                }
                 else
-                {
                     dict[v.Key] = $"{v.Key}='{v.Value}'";
-                }
             }
 
             var argsValue = string.Join(",", dict.Values);
@@ -173,15 +147,11 @@ namespace Server.Core.Data
 
         private static T MapDeserialize<T>(MySqlDataReader reader)
         {
-            if (!IsOpen)
-            {
-                return (T)Activator.CreateInstance(typeof(T));
-            }
+            if (!IsOpen) return (T)Activator.CreateInstance(typeof(T));
 
             var dict = new Dictionary<string, object>();
 
-            for (int i = 0; i < reader.FieldCount; i++)
-            {
+            for (var i = 0; i < reader.FieldCount; i++)
                 if (reader.GetValue(i).ToString().StartsWith("{") && reader.GetValue(i).ToString().EndsWith("}"))
                 {
                     var dyn = JsonConvert.DeserializeObject(reader.GetValue(i).ToString());
@@ -191,7 +161,6 @@ namespace Server.Core.Data
                 {
                     dict.Add(reader.GetName(i), reader.GetValue(i));
                 }
-            }
 
             reader.Close();
 
@@ -202,10 +171,7 @@ namespace Server.Core.Data
 
         private static List<T> MapDeserializeMultiples<T>(MySqlDataReader reader)
         {
-            if (!IsOpen)
-            {
-                return new List<T>();
-            }
+            if (!IsOpen) return new List<T>();
 
             var list = new List<Dictionary<string, object>>();
 
@@ -213,8 +179,7 @@ namespace Server.Core.Data
             {
                 var dict = new Dictionary<string, object>();
 
-                for (int i = 0; i < reader.FieldCount; i++)
-                {
+                for (var i = 0; i < reader.FieldCount; i++)
                     if (reader.GetValue(i).ToString().StartsWith("{") && reader.GetValue(i).ToString().EndsWith("}"))
                     {
                         var dyn = JsonConvert.DeserializeObject(reader.GetValue(i).ToString());
@@ -224,7 +189,6 @@ namespace Server.Core.Data
                     {
                         dict.Add(reader.GetName(i), reader.GetValue(i));
                     }
-                }
 
                 list.Add(dict);
             }
@@ -238,10 +202,7 @@ namespace Server.Core.Data
 
         private static Dictionary<string, object> MapSerialize(object value)
         {
-            if (!IsOpen)
-            {
-                return new Dictionary<string, object>();
-            }
+            if (!IsOpen) return new Dictionary<string, object>();
 
             var json = JsonConvert.SerializeObject(value);
             return JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
