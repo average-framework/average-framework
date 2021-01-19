@@ -17,6 +17,7 @@ namespace Client.Core.Controllers
     {
         private TaskManager task;
         private CharacterManager character;
+        private PermissionManager permission;
         private int deathCamera = -1;
         private bool isDead;
         private bool isSprinting;
@@ -98,6 +99,7 @@ namespace Client.Core.Controllers
         {
             task = Main.GetScript<TaskManager>();
             character = Main.GetScript<CharacterManager>();
+            permission = Main.GetScript<PermissionManager>();
 
             Hud.SetVisibility(false);
             Hud.SetHelpTextVisible(false);
@@ -177,6 +179,7 @@ namespace Client.Core.Controllers
                     Hud.SetCooldownVisible(true);
                     Hud.SetDeathScreenVisible(true);
                     Hud.SetPlayerVisible(false);
+                    Hud.SetHorseVisible(false);
                     Hud.SetContainerVisible(true);
 
                     await Delay(1000);
@@ -507,6 +510,21 @@ namespace Client.Core.Controllers
 
         #endregion
 
+        #region Commands
+
+#if  DEBUG
+        [Command("kill")]
+        private void Kill()
+        {
+            if (permission.HasPermission("admin"))
+            {
+                Health = 0;
+            }
+        }
+#endif
+
+        #endregion
+        
         #region Events
 
         [EventHandler(Events.CFX.OnResourceStop)]

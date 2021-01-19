@@ -30,8 +30,10 @@
     <setting file="file://$PROJECT_DIR$/Average.Server/Core/Data/MySQL.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Models/Clothing.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Server/Core/Managers/TaskManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Core/UI/Hud.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Scripts/CharacterCreator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Server/Core/Managers/DoorManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Core/UI/NUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Events.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Server/Core/Managers/CharacterManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Server/Core/Managers/UserManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -85,7 +87,6 @@
         <option value="$PROJECT_DIR$/Average.Server/Core/Managers/UserManager.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Core/Extensions/ObjectExtensions.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Settings.cs" />
-        <option value="$PROJECT_DIR$/Average.Client/Core/Controllers/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Scripts/MapEditor.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Main.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Core/Managers/DoorManager.cs" />
@@ -94,6 +95,7 @@
         <option value="$PROJECT_DIR$/Average.Client/Core/Managers/CharacterManager.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Core/Managers/SpawnManager.cs" />
         <option value="$PROJECT_DIR$/Average.Server/Core/Managers/CfxManager.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Core/Controllers/PlayerController.cs" />
       </list>
     </option>
   </component>
