@@ -82,7 +82,6 @@
         <option value="$PROJECT_DIR$/Average.Client/Models/MapScene.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Constant.cs" />
         <option value="$PROJECT_DIR$/Average.Server/Main.cs" />
-        <option value="$PROJECT_DIR$/Average.Server/Core/Managers/CfxManager.cs" />
         <option value="$PROJECT_DIR$/Average.Server/Core/Managers/UserManager.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Core/Extensions/ObjectExtensions.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Settings.cs" />
@@ -92,8 +91,9 @@
         <option value="$PROJECT_DIR$/Average.Client/Core/Managers/DoorManager.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Core/Managers/TaskManager.cs" />
         <option value="$PROJECT_DIR$/Average.Server/Core/Data/MySQL.cs" />
-        <option value="$PROJECT_DIR$/Average.Client/Core/Managers/SpawnManager.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Core/Managers/CharacterManager.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Core/Managers/SpawnManager.cs" />
+        <option value="$PROJECT_DIR$/Average.Server/Core/Managers/CfxManager.cs" />
       </list>
     </option>
   </component>

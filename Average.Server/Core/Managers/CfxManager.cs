@@ -49,19 +49,30 @@ namespace Server.Core.Managers
                     deferrals.done((string)Lang.Current["Server.Cfx.PlayerIsBanned"]);
                     return;
                 }
-
-                if (userData.IsWhitelisted == 0)
+                
+                if ((bool) Constant.Config["UseWhitelistSystem"])
                 {
-                    await Delay(0);
-                    deferrals.done((string)Lang.Current["Server.Cfx.PlayerIsNotWhitelisted"]);
-                    return;
+                    if (userData.IsWhitelisted == 0)
+                    {
+                        await Delay(0);
+                        deferrals.done((string)Lang.Current["Server.Cfx.PlayerIsNotWhitelisted"]);
+                        return;
+                    }
+                    else
+                    {
+                        await Delay(0);
+                        user.UpdateConnectionState(userData, true);
+                        await Delay(0);
+                        
+                        deferrals.done();
+                    }   
                 }
                 else
                 {
                     await Delay(0);
                     user.UpdateConnectionState(userData, true);
                     await Delay(0);
-
+                    
                     deferrals.done();
                 }
             }
