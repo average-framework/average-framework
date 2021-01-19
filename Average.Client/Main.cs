@@ -8,6 +8,7 @@ using Client.Core.UI.HitMenu;
 using Client.Core.UI.Menu;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Client.Scripts;
 
 namespace Client
@@ -17,7 +18,8 @@ namespace Client
         protected List<Script> scripts = new List<Script>();
 
         public static EventHandlerDictionary Handlers { get; private set; }
-
+        public static Func<Task> tick;
+        
         public Main()
         {
             GC.SuppressFinalize(this);

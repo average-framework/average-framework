@@ -27,6 +27,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Average.Client/Models/InteriorSet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Models/MyInterior.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Server/Core/Data/MySQL.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Models/Clothing.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Server/Core/Managers/TaskManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Scripts/CharacterCreator.cs" root0="FORCE_HIGHLIGHTING" />
@@ -45,9 +46,12 @@
     <setting file="file://$PROJECT_DIR$/Average.Server/Main.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Core/Helpers/MathHelpers.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Models/Objects.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Core/Internal/CAPI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Server/Scripts/MapEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Core/Managers/CharacterManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Server/Models/MapObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Core/Managers/SpawnManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Core/Managers/DoorManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Core/Managers/PermissionManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Core/Managers/TaskManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Core/Managers/UserManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -77,7 +81,6 @@
         <option value="$PROJECT_DIR$/Average.Client/Models/MapObject.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Models/MapScene.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Constant.cs" />
-        <option value="$PROJECT_DIR$/Average.Client/Main.cs" />
         <option value="$PROJECT_DIR$/Average.Server/Main.cs" />
         <option value="$PROJECT_DIR$/Average.Server/Core/Managers/CfxManager.cs" />
         <option value="$PROJECT_DIR$/Average.Server/Core/Managers/UserManager.cs" />
@@ -85,6 +88,12 @@
         <option value="$PROJECT_DIR$/Average.Client/Settings.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Core/Controllers/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Scripts/MapEditor.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Main.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Core/Managers/DoorManager.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Core/Managers/TaskManager.cs" />
+        <option value="$PROJECT_DIR$/Average.Server/Core/Data/MySQL.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Core/Managers/CharacterManager.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Core/Managers/SpawnManager.cs" />
       </list>
     </option>
   </component>
@@ -154,6 +163,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="452" y="95" key="#Notifications/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610986957376" />
+    <state x="440" y="193" key="IDE.errors.dialog" timestamp="1610999961273">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="193" key="IDE.errors.dialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610999961273" />
     <state x="277" y="92" key="SettingsEditor" timestamp="1610991235332">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -162,6 +175,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="728" y="409" width="865" height="368" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610984078787" />
+    <state x="514" y="179" width="875" height="663" key="recent.locations.popup" timestamp="1611000662273">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="514" y="179" width="875" height="663" key="recent.locations.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1611000662273" />
     <state x="532" y="-5" width="838" height="1032" key="search.everywhere.popup" timestamp="1610992345584">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

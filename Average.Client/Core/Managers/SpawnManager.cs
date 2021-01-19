@@ -31,6 +31,7 @@ namespace Client.Core.Managers
                 if ((bool)characterExist)
                 {
                     character.Load();
+                    SpawnPlayer();
                 }
                 else
                 {
@@ -100,78 +101,68 @@ namespace Client.Core.Managers
 
         public async void SpawnPlayer()
         {
-            await NUI.FadeOut(0);
-
-            while (!IsScreenFadedOut())
-            {
-                await Delay(250);
-            }
-
+            Log.Warn("1");
             await character.IsReady();
-
             var model = character.Data.SexType == 0 ? (uint)GetHashKey("mp_male") : (uint)GetHashKey("mp_female");
-
+            Log.Warn("2");
             SetPlayerModel(model);
+            
+            ShutdownLoadingScreen();
+            while (IsLoadingScreenActive())
+            {
+                await Delay(0);
+            }
+            Log.Warn("3");
+            await NUI.FadeOut(0);
+            await Delay(15000);
+            Log.Warn("4");
             SetPedOutfitPreset(PlayerPedId(), 0);
 
-            while (!OutfitFullyLoaded(PlayerPedId()))
-            {
-                await Delay(250);
-            }
-
+            // while (!OutfitFullyLoaded(PlayerPedId()))
+            // {
+            //     await Delay(250);
+            // }
+            //
             UpdatePedVariation();
 
-            await Delay(5000);
+            // await Delay(5000);
 
-            SetModelAsNoLongerNeeded(model);
             RequestCollisionAtCoord(defaultSpawnPosition.X, defaultSpawnPosition.Y, defaultSpawnPosition.Z);
-
-            var time = GetGameTimer();
-
-            while (!HasCollisionLoadedAroundEntity(PlayerPedId()) && (GetGameTimer() - time) < 5000)
-            {
-                await Delay(250);
-            }
-
             SetEntityCoordsNoOffset(PlayerPedId(), defaultSpawnPosition.X, defaultSpawnPosition.Y, defaultSpawnPosition.Z, false, false, false);
             SetEntityHeading(PlayerPedId(), defaultSpawnHeading);
-
+            ClearPlayerWantedLevel(PlayerId());
+            
             Function.Call(Hash.NETWORK_RESURRECT_LOCAL_PLAYER, defaultSpawnPosition.X, defaultSpawnPosition.Y, defaultSpawnPosition.Z, defaultSpawnHeading, true, true, false);
             Function.Call(Hash.CLEAR_PED_TASKS_IMMEDIATELY, PlayerPedId());
             Function.Call(Hash.REMOVE_ALL_PED_WEAPONS, PlayerPedId());
+            SetModelAsNoLongerNeeded(model);
 
-            ClearPlayerWantedLevel(PlayerId());
-
-            if (IsLoadingScreenActive())
-            {
-                ShutdownLoadingScreen();
-                while (IsLoadingScreenActive())
-                {
-                    await Delay(250);
-                }
-            }
-
-            await NUI.FadeIn(500);
-
-            while (!IsScreenFadedIn())
-            {
-                await Delay(250);
-            }
-
+            await Delay(0);
+            
             character.SetPedBody();
             character.SetPedFaceFeatures();
             character.SetPedBodyComponents();
             character.UpdateOverlay();
             character.SetPedClothes();
 
-            while (!HasPedComponentLoaded())
-            {
-                await Delay(250);
-#if DEBUG
-                Log.Warn("Loading ped components..");
-#endif
-                break;
-            }
+            // await Delay(1000);
+            
+//             while (!HasPedComponentLoaded())
+//             {
+//                 await Delay(250);
+// #if DEBUG
+//                 Log.Warn("Loading ped components..");
+// #endif
+//                 break;
+//             }
+            
+            await NUI.FadeIn(500);
+
+            // while (!IsScreenFadedIn())
+            // {
+            //     await Delay(100);
+            // }
+
 
             Dispose();
         }
@@ -187,23 +178,24 @@ namespace Client.Core.Managers
             }
 
             var map = Main.GetScript<MapManager>();
-
             map.Load();
 
-            await Delay(15000);
+            // await Delay(15000);
 
             while (!character.IsComponentsReady)
             {
                 await Delay(250);
             }
 
+            await Delay(0);
+            
             if ((bool)!characterExist)
             {
                 CreateCharacter();
             }
             else
             {
-                SpawnPlayer();
+                // SpawnPlayer();
             }
 
             map.Dispose();
