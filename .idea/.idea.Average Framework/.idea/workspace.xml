@@ -92,8 +92,8 @@
         <option value="$PROJECT_DIR$/Average.Client/Core/Managers/DoorManager.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Core/Managers/TaskManager.cs" />
         <option value="$PROJECT_DIR$/Average.Server/Core/Data/MySQL.cs" />
-        <option value="$PROJECT_DIR$/Average.Client/Core/Managers/CharacterManager.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Core/Managers/SpawnManager.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Core/Managers/CharacterManager.cs" />
       </list>
     </option>
   </component>
@@ -167,10 +167,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="193" key="IDE.errors.dialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610999961273" />
-    <state x="277" y="92" key="SettingsEditor" timestamp="1610991235332">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2197" y="92" key="SettingsEditor" timestamp="1611066675509">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="277" y="92" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610991235332" />
+    <state x="2197" y="92" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1611066675509" />
     <state x="728" y="409" width="865" height="368" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1610984078787">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

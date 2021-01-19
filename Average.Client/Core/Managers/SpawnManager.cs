@@ -30,8 +30,7 @@ namespace Client.Core.Managers
 
                 if ((bool)characterExist)
                 {
-                    character.Load();
-                    SpawnPlayer();
+                    await character.Load();
                 }
                 else
                 {
@@ -101,69 +100,42 @@ namespace Client.Core.Managers
 
         public async void SpawnPlayer()
         {
-            Log.Warn("1");
-            await character.IsReady();
-            var model = character.Data.SexType == 0 ? (uint)GetHashKey("mp_male") : (uint)GetHashKey("mp_female");
-            Log.Warn("2");
-            SetPlayerModel(model);
-            
             ShutdownLoadingScreen();
             while (IsLoadingScreenActive())
             {
                 await Delay(0);
             }
-            Log.Warn("3");
+            
             await NUI.FadeOut(0);
-            await Delay(15000);
-            Log.Warn("4");
+
+            await character.IsReady();
+            var model = character.Data.SexType == 0 ? (uint)GetHashKey("mp_male") : (uint)GetHashKey("mp_female");
+            SetPlayerModel(model);
             SetPedOutfitPreset(PlayerPedId(), 0);
-
-            // while (!OutfitFullyLoaded(PlayerPedId()))
-            // {
-            //     await Delay(250);
-            // }
-            //
             UpdatePedVariation();
-
-            // await Delay(5000);
+            
+            // Wait for the ped to be loaded
+            await Delay(5000);
 
             RequestCollisionAtCoord(defaultSpawnPosition.X, defaultSpawnPosition.Y, defaultSpawnPosition.Z);
             SetEntityCoordsNoOffset(PlayerPedId(), defaultSpawnPosition.X, defaultSpawnPosition.Y, defaultSpawnPosition.Z, false, false, false);
             SetEntityHeading(PlayerPedId(), defaultSpawnHeading);
             ClearPlayerWantedLevel(PlayerId());
             
+            // Need to wait map loading, without this, the skin doesn't load correctly, for sure, put 10000..
+            await Delay(5000);
+            
+            await character.Load();
+            await Delay(0);
+            UpdatePedVariation();
+            
             Function.Call(Hash.NETWORK_RESURRECT_LOCAL_PLAYER, defaultSpawnPosition.X, defaultSpawnPosition.Y, defaultSpawnPosition.Z, defaultSpawnHeading, true, true, false);
             Function.Call(Hash.CLEAR_PED_TASKS_IMMEDIATELY, PlayerPedId());
             Function.Call(Hash.REMOVE_ALL_PED_WEAPONS, PlayerPedId());
             SetModelAsNoLongerNeeded(model);
-
-            await Delay(0);
-            
-            character.SetPedBody();
-            character.SetPedFaceFeatures();
-            character.SetPedBodyComponents();
-            character.UpdateOverlay();
-            character.SetPedClothes();
-
-            // await Delay(1000);
-            
-//             while (!HasPedComponentLoaded())
-//             {
-//                 await Delay(250);
-// #if DEBUG
-//                 Log.Warn("Loading ped components..");
-// #endif
-//                 break;
-//             }
             
             await NUI.FadeIn(500);
-
-            // while (!IsScreenFadedIn())
-            // {
-            //     await Delay(100);
-            // }
-
-
+            
             Dispose();
         }
 
@@ -180,8 +152,6 @@ namespace Client.Core.Managers
             var map = Main.GetScript<MapManager>();
             map.Load();
 
-            // await Delay(15000);
-
             while (!character.IsComponentsReady)
             {
                 await Delay(250);
@@ -195,7 +165,7 @@ namespace Client.Core.Managers
             }
             else
             {
-                // SpawnPlayer();
+                SpawnPlayer();
             }
 
             map.Dispose();

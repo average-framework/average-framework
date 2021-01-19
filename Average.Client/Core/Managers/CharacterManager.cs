@@ -84,11 +84,11 @@ namespace Client.Core.Managers
             }
         }
 
-        public async void Load()
+        public async Task Load()
         {
             Data = null;
 
-            Event(Events.Character.OnLoad).On((message) => Data = message.Payloads[0].Convert<CharacterData>()).Emit();
+            Event(Events.Character.OnLoad).On(message => Data = message.Payloads[0].Convert<CharacterData>()).Emit();
 
             while (Data == null)
             {
@@ -96,13 +96,11 @@ namespace Client.Core.Managers
             }
 
             SetPedBody();
-            SetPedFaceFeatures();
-            SetPedFaceFeatures();
+            await SetPedFaceFeatures();
+            await SetPedFaceFeatures();
             SetPedBodyComponents();
             UpdateOverlay();
-            SetPedClothes();
-
-            await Delay(0);
+            await SetPedClothes();
 
             SetPedComponentDisabled(PlayerPedId(), 0x3F1F01E5, 0);
             SetPedComponentDisabled(PlayerPedId(), 0xDA0E2C55, 0);
@@ -140,7 +138,7 @@ namespace Client.Core.Managers
             RemovePedComponent(ClothCategories.Pants);
         }
 
-        public void SetPedFaceFeatures()
+        public async Task SetPedFaceFeatures()
         {
             foreach (var part in Data.FaceParts)
             {
@@ -148,7 +146,7 @@ namespace Client.Core.Managers
             }
         }
 
-        public async void SetPedClothes()
+        public async Task SetPedClothes()
         {
             foreach (var cloth in Data.Clothes)
             {
@@ -156,7 +154,7 @@ namespace Client.Core.Managers
                 {
                     SetPedComponentEnabled(cloth.Value);
                     UpdatePedVariation();
-                    await Delay(100);
+                    await Delay(500);
                 }
             }
         }
@@ -167,7 +165,7 @@ namespace Client.Core.Managers
             SetPedBodyComponent((uint)Clothes.WaistTypes[Data.WaistType]);
         }
 
-        public async void UpdateOverlay()
+        public async Task UpdateOverlay()
         {
             int ped = PlayerPedId();
 
