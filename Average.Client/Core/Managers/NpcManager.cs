@@ -1,7 +1,7 @@
-﻿using CitizenFX.Core;
-using Client.Core.Internal;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using CitizenFX.Core;
+using Client.Core.Internal;
 using static CitizenFX.Core.Native.API;
 
 namespace Client.Core.Managers
@@ -10,35 +10,29 @@ namespace Client.Core.Managers
     {
         public class Npc
         {
-            int _handle;
-
-            public int Handle
-            {
-                get => _handle;
-                set => _handle = value;
-            }
+            public int Handle { get; set; }
 
             public Vector3 Position
             {
-                get => GetEntityCoords(_handle, true, true);
-                set => SetEntityCoords(_handle, value.X, value.Y, value.Z, true, true, true, false);
+                get => GetEntityCoords(Handle, true, true);
+                set => SetEntityCoords(Handle, value.X, value.Y, value.Z, true, true, true, false);
             }
 
             public float Heading
             {
-                get => GetEntityHeading(_handle);
-                set => SetEntityHeading(_handle, value);
+                get => GetEntityHeading(Handle);
+                set => SetEntityHeading(Handle, value);
             }
 
             public Npc(int handle)
             {
-                _handle = handle;
+                Handle = handle;
             }
         }
+        
+        private readonly List<Npc> npcs = new List<Npc>();
 
-        protected List<Npc> npcs = new List<Npc>();
-
-        public NpcManager(Main main) : base(main) { }
+        public NpcManager(Main main) : base(main){}
 
         public async Task<Npc> Create(uint model, int variation, Vector3 position, float heading, bool isNetwork = false, bool netMissionEntity = false)
         {
@@ -46,13 +40,12 @@ namespace Client.Core.Managers
             {
                 CAPI.RequestModel(model);
 
-                while (!HasModelLoaded(model))
-                {
-                    await Delay(250);
-                }
+                while (!HasModelLoaded(model)) await Delay(250);
             }
 
-            var handle = CreatePed(model, position.X, position.Y, position.Z, heading, isNetwork, netMissionEntity, false, false);
+            var handle = CreatePed(model, position.X, position.Y, position.Z, heading, isNetwork, netMissionEntity,
+                false, false);
+            
             SetBlockingOfNonTemporaryEvents(handle, true);
             SetEntityVisible(handle, true);
             SetEntityInvincible(handle, true);
@@ -67,16 +60,22 @@ namespace Client.Core.Managers
 
             return npc;
         }
-        public Npc Get(int handle) => npcs.Find(x => x.Handle == handle);
-        public bool Exists(int handle) => npcs.Exists(x => x.Handle == handle);
+
+        public Npc Get(int handle)
+        {
+            return npcs.Find(x => x.Handle == handle);
+        }
+
+        public bool Exists(int handle)
+        {
+            return npcs.Exists(x => x.Handle == handle);
+        }
+
         public void Delete(int handle)
         {
             if (Exists(handle))
             {
-                if (DoesEntityExist(handle))
-                {
-                    DeleteEntity(ref handle);
-                }
+                if (DoesEntityExist(handle)) DeleteEntity(ref handle);
 
                 npcs.Remove(Get(handle));
             }
@@ -85,15 +84,11 @@ namespace Client.Core.Managers
         #region Events
 
         [EventHandler(Events.CFX.OnResourceStop)]
-        void OnResourceStop(string resourceName)
+        private void OnResourceStop(string resourceName)
         {
             if (resourceName == Constant.ResourceName)
-            {
                 foreach (var npc in npcs)
-                {
                     Delete(npc.Handle);
-                }
-            }
         }
 
         #endregion

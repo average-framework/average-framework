@@ -9,7 +9,11 @@ using Client.Core.UI.Menu;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using CitizenFX.Core.Native;
+using Client.Models;
 using Client.Scripts;
+using HorseSeller = Client.Scripts.HorseSeller;
+using Stable = Client.Scripts.Stable;
 
 namespace Client
 {
@@ -48,8 +52,45 @@ namespace Client
             LoadScript(new SpawnManager(this));
             LoadScript(new DoorManager(this));
             LoadScript(new MapEditor(this));
+            LoadScript(new Stable(this));
+            LoadScript(new HorseSeller(this));
         }
 
+#if DEBUG
+        [Command("debug.gotow")]
+        private async void GotowCommand()
+        {
+            var ped = API.PlayerPedId();
+            var pos = API.GetWaypointCoords();
+
+            await NUI.FadeOut(250);
+
+            for (int i = (int)API.GetHeightmapBottomZForPosition(pos.X, pos.Y) - 10; i < 1000; i++)
+            {
+                API.FreezeEntityPosition(ped, true);
+                API.SetEntityCoords(ped, pos.X, pos.Y, i, true, true, true, false);
+                var rayHandle = API.StartShapeTestRay(pos.X, pos.Y, i, pos.X, pos.Y, i - 2f, -1, ped, 0);
+                var hitd = false;
+                var endCoords = Vector3.Zero;
+                var surfaceNormal = Vector3.Zero;
+                var entityHit = 0;
+
+                API.GetShapeTestResult(rayHandle, ref hitd, ref endCoords, ref surfaceNormal, ref entityHit);
+
+                if (hitd)
+                {
+                    API.SetEntityCoords(ped, pos.X, pos.Y, i, true, true, true, false);
+                    API.FreezeEntityPosition(ped, false);
+                    break;
+                }
+
+                await Delay(0);
+            }
+
+            await NUI.FadeIn(250);
+        }        
+#endif
+        
         #region DO NOT TOUCH THIS
 
         public bool ScriptIsStarted<T>() => GetScript<T>() != null;

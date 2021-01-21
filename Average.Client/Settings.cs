@@ -1,4 +1,5 @@
-﻿using Client.Core.Internal;
+﻿using CitizenFX.Core.Native;
+using Client.Core.Internal;
 using Client.Core.UI;
 
 namespace Client
@@ -19,6 +20,8 @@ namespace Client
             CAPI.SetHudPreset("HUD_CTX_IN_MINIGAME_POKER_OUTRO");
             // Delete minimap and money in hud
             CAPI.SetHudPreset("HUD_CTX_MP_OUT_OF_AREA_BOUNDS");
+            
+            API.SetMinimapHideFow(true);
         }
     }
 }

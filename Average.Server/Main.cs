@@ -49,6 +49,7 @@ namespace Server
             LoadScript(new CharacterManager(this));
             LoadScript(new DoorManager(this));
             LoadScript(new MapEditor(this));
+            LoadScript(new Stable(this));
         }
 
         #region DO NOT TOUCH THIS

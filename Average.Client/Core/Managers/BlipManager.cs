@@ -1,5 +1,5 @@
-﻿using CitizenFX.Core;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using CitizenFX.Core;
 using static CitizenFX.Core.Native.API;
 using static Client.Core.Internal.CAPI;
 
@@ -9,21 +9,16 @@ namespace Client.Core.Managers
     {
         public class Blip
         {
-            protected int handle;
-            protected int sprite;
-            protected float scale;
-            protected string text;
-            protected Vector3 position;
+            private int sprite;
+            private float scale;
+            private string text;
+            private Vector3 position;
 
-            public int Handle
-            {
-                get { return handle; }
-                set { handle = value; }
-            }
+            public int Handle { get; set; }
 
             public string Text
             {
-                get { return text; }
+                get => text;
                 set
                 {
                     text = value;
@@ -33,7 +28,7 @@ namespace Client.Core.Managers
 
             public Vector3 Position
             {
-                get { return position; }
+                get => position;
                 set
                 {
                     position = value;
@@ -43,7 +38,7 @@ namespace Client.Core.Managers
 
             public float Scale
             {
-                get { return scale; }
+                get => scale;
                 set
                 {
                     scale = value;
@@ -53,7 +48,7 @@ namespace Client.Core.Managers
 
             public int Sprite
             {
-                get { return sprite; }
+                get => sprite;
                 set
                 {
                     sprite = value;
@@ -63,6 +58,8 @@ namespace Client.Core.Managers
 
             public int AssignedToEntity { get; set; }
 
+            public Blip() {}
+            
             public Blip(int handle, int sprite, string text, float scale, Vector3 position, int assignedToEntity = -1)
             {
                 Handle = handle;
@@ -73,10 +70,10 @@ namespace Client.Core.Managers
                 AssignedToEntity = assignedToEntity;
             }
         }
+        
+        private readonly List<Blip> blips = new List<Blip>();
 
-        protected List<Blip> blips = new List<Blip>();
-
-        public BlipManager(Main main) : base(main) { }
+        public BlipManager(Main main) : base(main){}
 
         public Blip Create(int sprite, string text, float scale, Vector3 position, int assignedToEntity = -1)
         {
@@ -87,18 +84,32 @@ namespace Client.Core.Managers
 
             return blip;
         }
-        public Blip GetBlipByAssignation(int entity) => ExistsOnAssignedEntity(entity) ? blips.Find(x => x.AssignedToEntity == entity) : null;
-        public Blip GetBlip(int handle) => Exists(handle) ? blips.Find(x => x.Handle == handle) : null;
-        public bool Exists(int handle) => blips.Exists(x => x.Handle == handle);
-        public bool ExistsOnAssignedEntity(int assignedToEntity) => blips.Exists(x => x.AssignedToEntity == assignedToEntity);
+
+        public Blip GetBlipByAssignation(int entity)
+        {
+            return ExistsOnAssignedEntity(entity) ? blips.Find(x => x.AssignedToEntity == entity) : null;
+        }
+
+        public Blip GetBlip(int handle)
+        {
+            return Exists(handle) ? blips.Find(x => x.Handle == handle) : null;
+        }
+
+        public bool Exists(int handle)
+        {
+            return blips.Exists(x => x.Handle == handle);
+        }
+
+        public bool ExistsOnAssignedEntity(int assignedToEntity)
+        {
+            return blips.Exists(x => x.AssignedToEntity == assignedToEntity);
+        }
+
         public void Delete(int handle)
         {
             if (Exists(handle))
             {
-                if (DoesBlipExist(handle))
-                {
-                    RemoveBlip(ref handle);
-                }
+                if (DoesBlipExist(handle)) RemoveBlip(ref handle);
 
                 blips.Remove(GetBlip(handle));
             }
@@ -110,12 +121,8 @@ namespace Client.Core.Managers
         private void OnResourceStop(string resourceName)
         {
             if (resourceName == Constant.ResourceName)
-            {
                 foreach (var blip in blips)
-                {
                     Delete(blip.Handle);
-                }
-            }
         }
 
         #endregion

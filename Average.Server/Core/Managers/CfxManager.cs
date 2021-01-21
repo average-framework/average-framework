@@ -10,7 +10,9 @@ namespace Server.Core.Managers
 
         public CfxManager(Main main) : base(main) => user = Main.GetScript<UserManager>();
 
-        [EventHandler(Events.CFX.OnPlayerConnecting)]
+        #region Events
+
+         [EventHandler(Events.CFX.OnPlayerConnecting)]
         private async void OnPlayerConnecting([FromSource] Player player, string playerName, dynamic setKickReason, dynamic deferrals)
         {
             deferrals.defer();
@@ -77,9 +79,7 @@ namespace Server.Core.Managers
                 }
             }
         }
-
-        #region Events
-
+        
         [EventHandler(Events.CFX.OnPlayerDisconnecting)]
         private void OnPlayerDisconnecting([FromSource] Player player, string reason)
         {

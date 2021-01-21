@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\DataModels\CharacterData.cs" />
+    <Compile Include="Core\DataModels\HorseData.cs" />
     <Compile Include="Core\DataModels\PermissionData.cs" />
     <Compile Include="Core\DataModels\UserData.cs" />
     <Compile Include="Core\Interfaces\IRpcHandler.cs" />

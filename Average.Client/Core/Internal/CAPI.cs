@@ -540,5 +540,6 @@ namespace Client.Core.Internal
         }
         public static void SetWeatherType(uint weatherType, bool p1, bool p2, bool p3, float p4, bool p5) => Function.Call((Hash)0x59174F1AFE095B5A, weatherType, p1, p2, p3, p4, p5);
         public static void SetWeatherTypeFrozen(bool toggle) => Function.Call((Hash)0xD74ACDF7DB8114AF, toggle);
+        public static int GetVariationCount(string hash) => Constant.Peds.Find(x => x.HashString == hash).Variation;
     }
 }

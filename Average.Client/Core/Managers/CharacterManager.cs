@@ -82,6 +82,10 @@ namespace Client.Core.Managers
                     }
                 }
             }
+            else
+            {
+                IsComponentsReady = true;
+            }
         }
 
         public async Task Load()

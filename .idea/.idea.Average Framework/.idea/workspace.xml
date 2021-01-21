@@ -27,46 +27,70 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Average.Client/Models/InteriorSet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Models/MyInterior.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Average.Server/Core/Data/MySQL.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Models/Clothing.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Average.Server/Core/Managers/TaskManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Average.Client/Core/UI/Hud.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Models/Imap.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Scripts/CharacterCreator.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Average.Server/Core/Managers/DoorManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Average.Client/Core/UI/NUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Events.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Average.Server/Core/Managers/CharacterManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Average.Server/Core/Managers/UserManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Main.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Average.Server/Core/Managers/PermissionManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Average.Server/Core/Managers/CfxManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Average.Server/Core/Interfaces/ITask.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Average.Server/Models/Door.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Server/Constant.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Server/Events.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Settings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Constant.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Server/Main.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Server/Core/Script.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Core/Script.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Server/Core/Data/MySQL.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Server/Core/Managers/TaskManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Core/UI/Hud.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Server/Core/Managers/DoorManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Core/UI/NUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Server/Core/Managers/CharacterManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Server/Core/Managers/UserManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Server/Core/Managers/PermissionManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Server/Core/Managers/CfxManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Server/Core/Interfaces/ITask.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Server/Models/Door.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Models/HorseComponentInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Core/Enums/MarkerType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Core/Helpers/MathHelpers.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Models/Objects.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Shared/Core/DataModels/HorseData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Core/Internal/CAPI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Server/Scripts/Stable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Server/Scripts/MapEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Core/Managers/CharacterManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Scripts/Stable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Server/Models/MapObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Core/Managers/SpawnManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Models/Stable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Core/Managers/BlipManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Models/Interact.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Core/Managers/DoorManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Core/Managers/PermissionManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Models/Blip.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Core/Managers/TaskManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Models/Npc.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Core/Managers/UserManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Core/Managers/NpcManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Core/Extensions/ObjectExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Core/Extensions/Vector3Extensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Average.Server/Core/Script.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Scripts/HorseSeller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Core/Extensions/FloatExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Shared/Core/DataModels/PermissionData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Models/HorseSellerInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Core/Interfaces/ITask.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Shared/Core/DataModels/UserData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Models/HorseInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Shared/Core/DataModels/CharacterData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Models/HorseStats.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Core/Controllers/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Core/Enums/Peds.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Scripts/MapEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Models/HorseSeller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Models/MapScene.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Average.Client/Core/Script.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Models/CameraInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Average.Client/Models/MapObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Average.Client/Models/HorseComponent.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -77,25 +101,47 @@
         <option value="$PROJECT_DIR$/Average.Client/Core/Interfaces/ITask.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Models/Objects.cs" />
         <option value="$PROJECT_DIR$/Average.Server/Models/MapObject.cs" />
-        <option value="$PROJECT_DIR$/Average.Server/Events.cs" />
         <option value="$PROJECT_DIR$/Average.Server/Scripts/MapEditor.cs" />
-        <option value="$PROJECT_DIR$/Average.Client/Events.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Models/MapObject.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Models/MapScene.cs" />
-        <option value="$PROJECT_DIR$/Average.Client/Constant.cs" />
-        <option value="$PROJECT_DIR$/Average.Server/Main.cs" />
         <option value="$PROJECT_DIR$/Average.Server/Core/Managers/UserManager.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Core/Extensions/ObjectExtensions.cs" />
-        <option value="$PROJECT_DIR$/Average.Client/Settings.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Scripts/MapEditor.cs" />
-        <option value="$PROJECT_DIR$/Average.Client/Main.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Core/Managers/DoorManager.cs" />
-        <option value="$PROJECT_DIR$/Average.Client/Core/Managers/TaskManager.cs" />
         <option value="$PROJECT_DIR$/Average.Server/Core/Data/MySQL.cs" />
-        <option value="$PROJECT_DIR$/Average.Client/Core/Managers/CharacterManager.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Core/Managers/SpawnManager.cs" />
-        <option value="$PROJECT_DIR$/Average.Server/Core/Managers/CfxManager.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Models/HorseComponentInfo.cs" />
         <option value="$PROJECT_DIR$/Average.Client/Core/Controllers/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Average.Server/Events.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Events.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Core/Managers/BlipManager.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Core/Managers/NpcManager.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Models/Blip.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Models/Npc.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Models/HorseSellerInfo.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Models/HorseStats.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Core/Internal/CAPI.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Core/Enums/Peds.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Models/HorseInfo.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Models/HorseSeller.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Models/HorseComponent.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Models/Interact.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Models/CameraInfo.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Models/StableInfo.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Models/Stable.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Constant.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Core/Script.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Settings.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Core/Managers/TaskManager.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Core/Managers/CharacterManager.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Main.cs" />
+        <option value="$PROJECT_DIR$/Average.Server/Scripts/HorseSeller.cs" />
+        <option value="$PROJECT_DIR$/Average.Shared/Core/DataModels/HorseData.cs" />
+        <option value="$PROJECT_DIR$/Average.Server/Main.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Scripts/Stable.cs" />
+        <option value="$PROJECT_DIR$/Average.Client/Scripts/HorseSeller.cs" />
+        <option value="$PROJECT_DIR$/Average.Server/Core/Managers/CfxManager.cs" />
+        <option value="$PROJECT_DIR$/Average.Server/Scripts/Stable.cs" />
       </list>
     </option>
   </component>
@@ -117,7 +163,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TWShift.3" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -134,6 +180,9 @@
       <workItem from="1610986397028" duration="138000" />
       <workItem from="1610986570463" duration="76000" />
       <workItem from="1610986797296" duration="132000" />
+      <workItem from="1611150035947" duration="4434000" />
+      <workItem from="1611154711779" duration="9398000" />
+      <workItem from="1611241588981" duration="232000" />
     </task>
     <servers />
   </component>
@@ -165,14 +214,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="452" y="95" key="#Notifications/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610986957376" />
+    <state x="2372" y="95" key="#SQL_Dialects" timestamp="1611084443884">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2372" y="95" key="#SQL_Dialects/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1611084443884" />
     <state x="440" y="193" key="IDE.errors.dialog" timestamp="1610999961273">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="193" key="IDE.errors.dialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610999961273" />
-    <state x="2197" y="92" key="SettingsEditor" timestamp="1611066675509">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="277" y="92" key="SettingsEditor" timestamp="1611184206822">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="277" y="92" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610991235332" />
+    <state x="277" y="92" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1611184206822" />
     <state x="2197" y="92" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1611066675509" />
     <state x="728" y="409" width="865" height="368" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1610984078787">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -182,6 +235,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="514" y="179" width="875" height="663" key="recent.locations.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1611000662273" />
+    <state x="532" y="237" key="run.anything.popup" timestamp="1611191704682">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="532" y="237" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1611191704682" />
     <state x="532" y="-5" width="838" height="1032" key="search.everywhere.popup" timestamp="1610992345584">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

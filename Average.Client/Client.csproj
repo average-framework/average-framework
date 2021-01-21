@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constant.cs" />
+    <Compile Include="Core\Enums\Peds.cs" />
     <Compile Include="Core\Internal\Configuration.cs" />
     <Compile Include="Core\Enums\ClothCategories.cs" />
     <Compile Include="Core\Enums\Control.cs" />
@@ -114,15 +115,25 @@
     <Compile Include="Core\UI\Menu\MenuSliderSelectorItem.cs" />
     <Compile Include="Core\UI\Menu\MenuStatsItem.cs" />
     <Compile Include="Core\UI\Menu\MenuTextboxItem.cs" />
+    <Compile Include="Models\Blip.cs" />
+    <Compile Include="Models\CameraInfo.cs" />
     <Compile Include="Models\Clothing.cs" />
     <Compile Include="Models\Door.cs" />
+    <Compile Include="Models\HorseComponent.cs" />
+    <Compile Include="Models\HorseComponentInfo.cs" />
+    <Compile Include="Models\HorseInfo.cs" />
+    <Compile Include="Models\HorseSeller.cs" />
+    <Compile Include="Models\HorseSellerInfo.cs" />
+    <Compile Include="Models\HorseStats.cs" />
     <Compile Include="Models\Imap.cs" />
     <Compile Include="Models\DoorInfo.cs" />
+    <Compile Include="Models\Interact.cs" />
     <Compile Include="Models\MapObject.cs" />
     <Compile Include="Models\MapScene.cs" />
     <Compile Include="Models\MyInterior.cs" />
     <Compile Include="Models\InteriorSet.cs" />
     <Compile Include="Models\Interior.cs" />
+    <Compile Include="Models\Npc.cs" />
     <Compile Include="Models\Objects.cs" />
     <Compile Include="Models\PedOverlay.cs" />
     <Compile Include="Models\Ped.cs" />
@@ -138,6 +149,7 @@
     <Compile Include="Events.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Models\PedComponent.cs" />
+    <Compile Include="Models\Stable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\Script.cs" />
     <Compile Include="Core\Managers\NpcManager.cs" />
@@ -151,7 +163,9 @@
     <Compile Include="Core\UI\Menu\Menu.cs" />
     <Compile Include="Core\UI\NUI.cs" />
     <Compile Include="Core\Managers\SpawnManager.cs" />
+    <Compile Include="Scripts\HorseSeller.cs" />
     <Compile Include="Scripts\MapEditor.cs" />
+    <Compile Include="Scripts\Stable.cs" />
     <Compile Include="Settings.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -206,6 +206,8 @@ namespace Client.Core.Controllers
                     Hud.SetVisibility(true);
                     Hud.SetContainerVisible(true);
                     Hud.SetPlayerVisible(true);
+                    Hud.SetCooldownVisible(false);
+                    Hud.SetDeathScreenVisible(false);
                     Hud.SetHelpTextVisible(false);
                     Hud.SetHorseVisible(IsPedOnMount(ped));
 

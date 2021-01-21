@@ -11,12 +11,12 @@ namespace Client.Core.Managers
         public class CAction : ITask
         {
             public string Id { get; } = CAPI.RandomString();
-            public int Delay { get; private set; }
-            public bool DestroyOnFinish { get; private set; }
+            public int Delay { get; }
+            public bool DestroyOnFinish { get; }
             public int CurrentRepeat { get; set; }
-            public int Repeat { get; private set; }
+            public int Repeat { get; }
             public Func<Task> Task { get; set; }
-            public Action Action { get; private set; }
+            public Action Action { get; }
 
             public CAction(int delay, int repeat, bool destroyOnFinish, Action action)
             {
@@ -38,7 +38,7 @@ namespace Client.Core.Managers
         public void Add(CAction task)
         {
             Func<Task> func = null;
-            func = new Func<Task>(async () =>
+            func = async () =>
             {
                 if (task.Delay >= 0)
                 {
@@ -74,7 +74,7 @@ namespace Client.Core.Managers
                 {
                     Tick -= func;
                 }
-            });
+            };
 
             if (!ActionExists(task.Id))
             {

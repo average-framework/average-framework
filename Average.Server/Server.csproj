@@ -93,6 +93,7 @@
     <Compile Include="Core\Managers\CharacterManager.cs" />
     <Compile Include="Core\Managers\DoorManager.cs" />
     <Compile Include="Scripts\MapEditor.cs" />
+    <Compile Include="Scripts\Stable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

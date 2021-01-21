@@ -46,5 +46,19 @@
             public const string OnSaveScene = "MapEditor.OnSaveScene";
             public const string OnDeleteScene = "MapEditor.OnDeleteScene";
         }
+        
+        public class HorseSeller
+        {
+            public const string OnBuyHorse = "HorseSeller.OnBuyHorse";
+        }
+
+        public class Stable
+        {
+            public const string OnGetPlayerHorses = "Stable.OnGetPlayerHorses";
+            public const string OnGetPlayerHorsesToDelete = "Stable.OnGetPlayerHorsesToDelete";
+            public const string OnSaveMyHorse = "Stable.OnSaveMyHorse";
+            public const string OnPlayerDisconnect = "Stable.OnPlayerDisconnect";
+        }
+
     }
 }

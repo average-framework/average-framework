@@ -22,6 +22,7 @@
             <e p="HorseComponentsCategories.cs" t="Include" />
             <e p="Keys.cs" t="Include" />
             <e p="MarkerType.cs" t="Include" />
+            <e p="Peds.cs" t="Include" />
             <e p="PostEffect.cs" t="Include" />
             <e p="Timecycles.cs" t="Include" />
             <e p="WalkStyles.cs" t="Include" />
@@ -88,20 +89,31 @@
         <e p="Events.cs" t="Include" />
         <e p="Main.cs" t="Include" />
         <e p="Models" t="Include">
+          <e p="Blip.cs" t="Include" />
+          <e p="CameraInfo.cs" t="Include" />
           <e p="Clothing.cs" t="Include" />
           <e p="Door.cs" t="Include" />
           <e p="DoorInfo.cs" t="Include" />
+          <e p="HorseComponent.cs" t="Include" />
+          <e p="HorseComponentInfo.cs" t="Include" />
+          <e p="HorseInfo.cs" t="Include" />
+          <e p="HorseSeller.cs" t="Include" />
+          <e p="HorseSellerInfo.cs" t="Include" />
+          <e p="HorseStats.cs" t="Include" />
           <e p="Imap.cs" t="Include" />
+          <e p="Interact.cs" t="Include" />
           <e p="Interior.cs" t="Include" />
           <e p="InteriorSet.cs" t="Include" />
           <e p="MapObject.cs" t="Include" />
           <e p="MapScene.cs" t="Include" />
           <e p="MyImap.cs" t="Include" />
           <e p="MyInterior.cs" t="Include" />
+          <e p="Npc.cs" t="Include" />
           <e p="Objects.cs" t="Include" />
           <e p="Ped.cs" t="Include" />
           <e p="PedComponent.cs" t="Include" />
           <e p="PedOverlay.cs" t="Include" />
+          <e p="Stable.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive" />
         <e p="packages.config" t="Include" />
@@ -110,7 +122,9 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="CharacterCreator.cs" t="Include" />
+          <e p="HorseSeller.cs" t="Include" />
           <e p="MapEditor.cs" t="Include" />
+          <e p="Stable.cs" t="Include" />
         </e>
         <e p="Settings.cs" t="Include" />
       </e>
@@ -161,6 +175,7 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="MapEditor.cs" t="Include" />
+          <e p="Stable.cs" t="Include" />
         </e>
         <e p="Server.csproj" t="IncludeRecursive" />
       </e>
@@ -168,6 +183,7 @@
         <e p="Core" t="Include">
           <e p="DataModels" t="Include">
             <e p="CharacterData.cs" t="Include" />
+            <e p="HorseData.cs" t="Include" />
             <e p="PermissionData.cs" t="Include" />
             <e p="UserData.cs" t="Include" />
           </e>
