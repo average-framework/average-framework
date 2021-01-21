@@ -63,21 +63,6 @@ namespace Server.Scripts
             Log.WriteLine("Horses Loaded");
         }
         
-        // void InitOnGetPlayerHorsesToDeleteCallback()
-        // {
-        //     Event(Events.Stable.OnGetPlayerHorsesToDelete).On((message, callback) =>
-        //     {
-        //         var rockstarId = Players[message.Target].Identifiers["steam"];
-        //         callback(horsesToDeleteOnDisconnect[rockstarId]);
-        //     });
-        //     
-        //     // Player tempPlayer = null;
-        //     //
-        //     // EventCallback.Register(Events.Stable.OnGetPlayerHorsesToDelete,
-        //     //     player => tempPlayer = Players[player],
-        //     //     () => JsonConvert.SerializeObject(horsesToDeleteOnDisconnect[tempPlayer.Identifiers["steam"]]));
-        // }
-
         public void DeleteHorseForAllPlayer(Player player)
         {
             var rockstarId = player.Identifiers["license"];
@@ -105,7 +90,7 @@ namespace Server.Scripts
 
             if (horses.ContainsKey(horseData.RockstarId))
             {
-                var horse = horses[horseData.RockstarId].Find(x => x.Id == horseData.Id);
+                var horse = horses[horseData.RockstarId].Find(x => x.HorseId == horseData.HorseId);
 
                 if (horse != null)
                 {

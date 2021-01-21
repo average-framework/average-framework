@@ -482,7 +482,6 @@ namespace Client.Scripts
                 }
             else
                 // The horse as never been changed
-        
                 foreach (var comp in horseComponentsHistory)
                     if (comp.Value.Item2 != -1)
                         total += comp.Value.Item1.Cost;
@@ -875,13 +874,8 @@ namespace Client.Scripts
             typeMenuItem.Text = $"{Lang.Current["Client.HorseSeller.TypeMenuItem.Title"]}: " + currentHorse.Type;
             paidItem = new MenuItem($"{Lang.Current["Client.HorseSeller.Pay"].Replace("{0}", CAPI.ConvertDecimalToString(0))} $", async () =>
             {
-                //var character = Main.GetScript<Character.Character>();
-                //await character.IsReady();
-        
                 if (CalculateHorseTotalCost() <= character.Data.Economy.Money)
                 {
-                    //var economy = Main.GetScript<Economy>();
-        
                     FreezeEntityPosition(currentPreviewHorseEntity, true);
                     SetEntityCompletelyDisableCollision(currentPreviewHorseEntity, true, true);
         
@@ -896,11 +890,13 @@ namespace Client.Scripts
                                 genderItem.Index, (uint) GetEntityModel(currentPreviewHorseEntity),
                                 new Dictionary<string, uint>(), 1, 0);
         
-                            horseData.Id = CAPI.RandomString();
+                            horseData.HorseId = CAPI.RandomString();
                             stable.Data.Add(horseData);
         
                             var json = JsonConvert.SerializeObject(horseData);
         
+                            Log.Warn("json: " + json);
+                            
                             await DeleteHorse(currentPreviewHorseEntity);
         
                             // Save horse in database

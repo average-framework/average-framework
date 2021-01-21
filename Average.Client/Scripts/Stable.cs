@@ -192,7 +192,7 @@ namespace Client.Scripts
 
         private void InitMainMenu()
         {
-            mainMenu = new MenuContainer(Lang.Current["MyHorses"].ToUpper());
+            mainMenu = new MenuContainer(Lang.Current["Client.Stable.MyHorses"].ToUpper());
             menu.CanCloseMenu = true;
             menu.CreateSubMenu(mainMenu);
 
@@ -233,8 +233,6 @@ namespace Client.Scripts
                         horse.IsStored = 0;
                         horse.Position = tempHorse.Position;
                         NetworkRegisterEntityAsNetworked(horse.Entity);
-
-                        //Save(horse);
 
                         menu.CloseMenu();
                         NUI.Focus(false, false);
@@ -408,7 +406,7 @@ namespace Client.Scripts
         {
             CAPI.UpdatePedVariation(horseHandle);
 
-            var horseInstance = Data.Find(x => x.Id == horse.Id);
+            var horseInstance = Data.Find(x => x.HorseId == horse.HorseId);
 
             if (horseInstance.Components.Count > 0)
                 foreach (var component in horseInstance.Components)

@@ -4,7 +4,7 @@ namespace Shared.Core.DataModels
 {
     public class HorseData
     {
-        public string Id { get; set; }
+        public string HorseId { get; set; }
         public uint Model { get; set; }
         public Dictionary<string, uint> Components { get; set; }
         public int Entity { get; set; }

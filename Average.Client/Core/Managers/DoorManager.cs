@@ -145,6 +145,9 @@ namespace Client.Core.Managers
                Math.Round(x.Position.Y) == Math.Round(position.Y) &&
                Math.Round(x.Position.Z) == Math.Round(position.Z));
 
+            if (door == null)
+                return;
+            
             door.IsLocked = isLocked;
             Hud.SetMessage(Lang.Current["Client.DoorManager.IsAuthorizedLeft"], Lang.Current["Client.DoorManager.IsAuthorizedKey"], Lang.Current["Client.DoorManager.IsAuthorizedRight"].ToString().Replace("{0}", isLocked ? Lang.Current["Client.DoorManager.IsNotLocked"] : Lang.Current["Client.DoorManager.IsLocked"]));
 

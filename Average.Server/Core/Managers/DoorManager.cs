@@ -26,9 +26,12 @@ namespace Server.Core.Managers
                 Math.Round(x.Position.X) == Math.Round(position.X) &&
                 Math.Round(x.Position.Y) == Math.Round(position.Y) &&
                 Math.Round(x.Position.Z) == Math.Round(position.Z));
-            door.IsLocked = !door.IsLocked;
 
-            TriggerClientEvent(Events.Door.SetDoorState, door.Position, door.IsLocked);
+            if (door == null)
+                return;
+            
+            door.IsLocked = !door.IsLocked;
+            TriggerClientEvent(Events.Door.SetDoorState, door.Position, door.IsLocked);   
         }
 
         [EventHandler(Events.Door.SetDefaultDoorState)]
@@ -38,8 +41,11 @@ namespace Server.Core.Managers
                 Math.Round(x.Position.X) == Math.Round(position.X) &&
                 Math.Round(x.Position.Y) == Math.Round(position.Y) &&
                 Math.Round(x.Position.Z) == Math.Round(position.Z));
-            door.IsLocked = isLocked;
 
+            if (door == null)
+                return;
+            
+            door.IsLocked = isLocked;
             TriggerClientEvent(Events.Door.SetDoorState, door.Position, isLocked);
         }
 
